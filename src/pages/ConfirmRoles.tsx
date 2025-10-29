@@ -25,6 +25,7 @@ export function ConfirmRoles() {
       country: role.country,
       work_model: role.work_model,
       start_preference: role.start_preference,
+      manager: role.manager,
     });
   };
 
@@ -251,7 +252,19 @@ export function ConfirmRoles() {
                           <option value="On-site">On-site</option>
                         </select>
                       </div>
-                      <div className="col-span-2">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Manager
+                        </label>
+                        <input
+                          type="text"
+                          value={formData.manager || ''}
+                          onChange={(e) => setFormData({ ...formData, manager: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+                          placeholder="e.g., John Smith"
+                        />
+                      </div>
+                      <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                           Preferred Start Date
                         </label>

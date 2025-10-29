@@ -77,6 +77,7 @@ export function RoleIntake() {
   };
   
   const [formData, setFormData] = useState<Partial<Role>>(getInitialFormData());
+  const [wasAccessedDirectly, setWasAccessedDirectly] = useState(!pendingRoleIntake);
 
   // Clear pending intake after using it
   React.useEffect(() => {
@@ -175,7 +176,7 @@ export function RoleIntake() {
         </p>
       </div>
 
-      {!pendingRoleIntake && (
+      {wasAccessedDirectly && (
         <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-2xl p-4">
           <div className="flex items-start gap-3">
             <span className="text-2xl">⚠️</span>
