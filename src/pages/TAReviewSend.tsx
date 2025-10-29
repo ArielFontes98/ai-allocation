@@ -1,13 +1,14 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useStore } from '../state/store';
-import { RoleMatchesTable } from '../components/RoleMatchesTable';
-import { MatchTable } from '../components/MatchTable';
+import { HybridTable } from '../components/HybridTable';
 import { EditMatchModal } from '../components/EditMatchModal';
+import { CandidateSelectorModal } from '../components/CandidateSelectorModal';
+import { RoleSelectorModal } from '../components/RoleSelectorModal';
 import { FiltersBar } from '../components/FiltersBar';
 import { addToast } from '../components/Layout';
-import { getTopMatchesForRole, getTopMatchesForCandidate } from '../lib/matching';
+import { getTopMatchesForRole, getTopMatchesForCandidate, computeMatchScore } from '../lib/matching';
 import { Send, Filter, Download } from 'lucide-react';
-import type { MatchScore } from '../types';
+import type { MatchScore, Role, Candidate } from '../types';
 
 export function TAReviewSend() {
   const candidates = useStore((state) => state.candidates);
@@ -24,6 +25,8 @@ export function TAReviewSend() {
 
   const [currentMatches, setCurrentMatches] = useState<MatchScore[]>([]);
   const [editingMatch, setEditingMatch] = useState<MatchScore | null>(null);
+  const [selectingForRole, setSelectingForRole] = useState<Role | null>(null);
+  const [selectingForCandidate, setSelectingForCandidate] = useState<Candidate | null>(null);
 
   // Compute matches for all roles and candidates
   useEffect(() => {
@@ -108,16 +111,6 @@ export function TAReviewSend() {
     addToast('Match score updated successfully', 'success');
   };
 
-  // Get filtered matches based on current view
-  const getDisplayMatches = () => {
-    if (selectedView === 'by-role') {
-      const roleIds = new Set((filteredData as typeof roles).map(r => r.id));
-      return currentMatches.filter((m) => roleIds.has(m.role_id));
-    } else {
-      const candidateIds = new Set((filteredData as typeof candidates).map(c => c.id));
-      return currentMatches.filter((m) => candidateIds.has(m.candidate_id));
-    }
-  };
 
   const handleGenerateBatch = () => {
     const batch = createBatch(currentMatches.filter((m) => m.passed_constraints));
@@ -299,60 +292,43 @@ export function TAReviewSend() {
         </div>
       </div>
 
-      {/* Content - Visual Tables */}
-      <div className="mt-6 space-y-4">
-        {selectedView === 'by-role' ? (
-          (filteredData as typeof roles).length === 0 ? (
-            <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
-              <p className="text-gray-500">No roles found with current filters.</p>
-            </div>
-          ) : (
-            (filteredData as typeof roles).map((role) => {
-              const roleMatches = currentMatches
-                .filter((m) => m.role_id === role.id && m.passed_constraints)
-                .sort((a, b) => b.total_score - a.total_score)
-                .slice(0, 3);
-
-              return (
-                <RoleMatchesTable
-                  key={role.id}
-                  role={role}
-                  matches={roleMatches}
-                  candidates={candidates}
-                  pipeline={pipeline}
-                  onEditMatch={handleEditMatch}
-                  onRemoveMatch={(matchId) => {
-                    const [candidateId, roleId] = matchId.split('-');
-                    setCurrentMatches((prev) =>
-                      prev.filter((m) => !(m.candidate_id === candidateId && m.role_id === roleId))
-                    );
-                    addToast('Candidate removed from top 3', 'info');
-                  }}
-                  onAddCandidate={() => {
-                    // Show available candidates modal (simplified for now)
-                    addToast('Add candidate feature - to be implemented with candidate selector', 'info');
-                  }}
-                />
-              );
-            })
-          )
+      {/* Content - Hybrid Table */}
+      <div className="mt-6">
+        {(filteredData as Role[] | Candidate[]).length === 0 ? (
+          <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
+            <p className="text-gray-500">
+              No {selectedView === 'by-role' ? 'roles' : 'candidates'} found with current filters.
+            </p>
+          </div>
         ) : (
-          getDisplayMatches().length === 0 ? (
-            <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
-              <p className="text-gray-500">No matches found with current filters.</p>
-            </div>
-          ) : (
-            <MatchTable
-              matches={getDisplayMatches()}
-              candidates={candidates}
-              roles={roles}
-              pipeline={pipeline}
-              view={selectedView}
-              onEditMatch={handleEditMatch}
-              onSelectCandidate={() => {}}
-              onSelectRole={() => {}}
-            />
-          )
+          <HybridTable
+            items={filteredData as Role[] | Candidate[]}
+            matches={currentMatches.filter((m) => m.passed_constraints)}
+            candidates={candidates}
+            roles={roles}
+            pipeline={pipeline}
+            view={selectedView}
+            onEditMatch={handleEditMatch}
+            onRemoveMatch={(match) => {
+              setCurrentMatches((prev) =>
+                prev.filter((m) => !(m.candidate_id === match.candidate_id && m.role_id === match.role_id))
+              );
+              addToast(`${selectedView === 'by-role' ? 'Candidate' : 'Role'} removed from top 3`, 'info');
+            }}
+            onAddMatch={(itemId) => {
+              if (selectedView === 'by-role') {
+                const role = roles.find((r) => r.id === itemId);
+                if (role) {
+                  setSelectingForRole(role);
+                }
+              } else {
+                const candidate = candidates.find((c) => c.id === itemId);
+                if (candidate) {
+                  setSelectingForCandidate(candidate);
+                }
+              }
+            }}
+          />
         )}
       </div>
 
@@ -363,6 +339,75 @@ export function TAReviewSend() {
         onClose={() => setEditingMatch(null)}
         onSave={handleSaveMatch}
       />
+
+      {/* Candidate Selector Modal */}
+      {selectingForRole && (
+        <CandidateSelectorModal
+          isOpen={true}
+          role={selectingForRole}
+          availableCandidates={candidates}
+          currentTop3Ids={currentMatches
+            .filter((m) => m.role_id === selectingForRole.id)
+            .map((m) => m.candidate_id)}
+          onSelect={(candidateId) => {
+            const candidate = candidates.find((c) => c.id === candidateId);
+            if (!candidate || !selectingForRole) return;
+
+            const interview = interviews.find((i) => i.candidate_id === candidateId && i.role_id === selectingForRole.id);
+            const pipe = pipeline.find((p) => p.candidate_id === candidateId && (p.role_id === selectingForRole.id || !p.role_id));
+            const newMatch = computeMatchScore(candidate, selectingForRole, interview, pipe);
+
+            if (newMatch.passed_constraints) {
+              setCurrentMatches((prev) => {
+                // Remove any existing match for this pair
+                const filtered = prev.filter(
+                  (m) => !(m.candidate_id === candidateId && m.role_id === selectingForRole.id)
+                );
+                return [...filtered, newMatch];
+              });
+              addToast(`${candidate.name} added to ${selectingForRole.title}`, 'success');
+            } else {
+              addToast('Candidate does not meet constraints', 'error');
+            }
+            setSelectingForRole(null);
+          }}
+          onClose={() => setSelectingForRole(null)}
+        />
+      )}
+
+      {/* Role Selector Modal */}
+      {selectingForCandidate && (
+        <RoleSelectorModal
+          isOpen={true}
+          candidateId={selectingForCandidate.id}
+          availableRoles={roles}
+          currentTop3Ids={currentMatches
+            .filter((m) => m.candidate_id === selectingForCandidate.id)
+            .map((m) => m.role_id)}
+          onSelect={(roleId) => {
+            const role = roles.find((r) => r.id === roleId);
+            if (!role || !selectingForCandidate) return;
+
+            const interview = interviews.find((i) => i.candidate_id === selectingForCandidate.id && i.role_id === roleId);
+            const pipe = pipeline.find((p) => p.candidate_id === selectingForCandidate.id && (p.role_id === roleId || !p.role_id));
+            const newMatch = computeMatchScore(selectingForCandidate, role, interview, pipe);
+
+            if (newMatch.passed_constraints) {
+              setCurrentMatches((prev) => {
+                const filtered = prev.filter(
+                  (m) => !(m.candidate_id === selectingForCandidate.id && m.role_id === roleId)
+                );
+                return [...filtered, newMatch];
+              });
+              addToast(`${role.title} added to ${selectingForCandidate.name}`, 'success');
+            } else {
+              addToast('Role does not meet constraints', 'error');
+            }
+            setSelectingForCandidate(null);
+          }}
+          onClose={() => setSelectingForCandidate(null)}
+        />
+      )}
     </div>
   );
 }
