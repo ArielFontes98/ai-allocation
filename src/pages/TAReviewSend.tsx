@@ -45,57 +45,6 @@ export function TAReviewSend() {
     setCurrentMatches(matches);
   }, [candidates, roles, interviews, pipeline, selectedView]);
 
-  // Apply filters
-  const filteredData = useMemo(() => {
-    if (selectedView === 'by-role') {
-      let filtered: typeof roles = [...roles];
-
-      if (filters.country) {
-        filtered = filtered.filter((item) => item.country === filters.country);
-      }
-      if (filters.function) {
-        filtered = filtered.filter((item) => item.function === filters.function);
-      }
-      if (filters.level) {
-        filtered = filtered.filter((item) => item.target_levels.includes(filters.level as string));
-      }
-      if (filters.language) {
-        filtered = filtered.filter((item) => 
-          item.languages_required.some((l) => l.code === filters.language)
-        );
-      }
-      if (filters.staleInPipe) {
-        filtered = filtered.filter((item) => item.age_days >= filters.staleInPipe!);
-      }
-      if (filters.oldRole) {
-        filtered = filtered.filter((item) => item.age_days >= filters.oldRole!);
-      }
-
-      return filtered;
-    } else {
-      let filtered: typeof candidates = [...candidates];
-
-      if (filters.country) {
-        filtered = filtered.filter((item) => item.country === filters.country);
-      }
-      if (filters.language) {
-        filtered = filtered.filter((item) => 
-          item.languages.some((l) => l.code === filters.language)
-        );
-      }
-      if (filters.staleInPipe) {
-        filtered = filtered.filter((item) => {
-          const pipe = pipeline.find((p) => p.candidate_id === item.id);
-          return pipe && pipe.time_in_pipe_days >= filters.staleInPipe!;
-        });
-      }
-
-      return filtered;
-    }
-  }, [selectedView, roles, candidates, filters, pipeline]);
-
-
-
   const handleGenerateBatch = () => {
     const batch = createBatch(currentMatches.filter((m) => m.passed_constraints));
     setMatches(batch.matches);
