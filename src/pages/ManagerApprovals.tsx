@@ -294,7 +294,7 @@ export function ManagerApprovals() {
                                 addToast('Scorecard functionality would open here in production', 'info');
                               }}
                             >
-                              Click here for additional information
+                              Click here for additional information (Candidate Score Card)
                             </a>
                           </div>
 

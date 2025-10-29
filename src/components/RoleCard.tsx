@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import type { Role } from '../types';
 import { Badge } from './Badge';
-import { Building2, MapPin, Calendar, Users } from 'lucide-react';
+import { Building2, MapPin, Calendar, Users, UserCheck } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
 interface RoleCardProps {
@@ -49,6 +49,12 @@ export function RoleCard({ role, onClick, className = '', showAge = false }: Rol
           <Calendar className="w-4 h-4" />
           <span>Start: {new Date(role.start_preference).toLocaleDateString()}</span>
         </div>
+        {role.manager && (
+          <div className="flex items-center gap-2 text-sm text-gray-600">
+            <UserCheck className="w-4 h-4" />
+            <span>Manager: {role.manager}</span>
+          </div>
+        )}
       </div>
 
       {showAge && (
@@ -59,4 +65,6 @@ export function RoleCard({ role, onClick, className = '', showAge = false }: Rol
     </motion.div>
   );
 }
+
+
 
