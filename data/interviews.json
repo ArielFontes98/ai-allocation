@@ -1,0 +1,63 @@
+[
+  {
+    "candidate_id": "cand_123",
+    "role_id": "role_001",
+    "panel_scores": {
+      "technical": 4.5,
+      "communication": 4.0,
+      "business": 4.2
+    },
+    "notes": "Strong technical skills in credit modeling. Good communication and understanding of business context. Internal candidate with relevant domain experience."
+  },
+  {
+    "candidate_id": "cand_456",
+    "role_id": "role_001",
+    "panel_scores": {
+      "technical": 4.8,
+      "communication": 4.5,
+      "business": 4.6
+    },
+    "notes": "Excellent technical depth, especially in MLOps. Strong communication and strategic thinking. Great fit for senior role."
+  },
+  {
+    "candidate_id": "cand_101",
+    "role_id": "role_001",
+    "panel_scores": {
+      "technical": 4.7,
+      "communication": 4.3,
+      "business": 4.4
+    },
+    "notes": "Very strong technically with credit risk expertise. Good business acumen. External candidate."
+  },
+  {
+    "candidate_id": "cand_789",
+    "role_id": "role_002",
+    "panel_scores": {
+      "technical": 4.2,
+      "communication": 4.3,
+      "business": 4.1
+    },
+    "notes": "Good technical skills, strong in experimentation. Internal candidate from Payments team with domain knowledge."
+  },
+  {
+    "candidate_id": "cand_202",
+    "role_id": "role_002",
+    "panel_scores": {
+      "technical": 3.8,
+      "communication": 4.0,
+      "business": 3.9
+    },
+    "notes": "Solid skills, growing in technical depth. Good domain knowledge from payments. May need more senior guidance."
+  },
+  {
+    "candidate_id": "cand_101",
+    "role_id": "role_003",
+    "panel_scores": {
+      "technical": 4.6,
+      "communication": 4.4,
+      "business": 4.5
+    },
+    "notes": "Strong technical background in risk modeling. Good communication skills. Strong fit for credit risk role."
+  }
+]
+

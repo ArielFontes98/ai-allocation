@@ -1,0 +1,40 @@
+[
+  {
+    "candidate_id": "cand_123",
+    "stage": "manager_review",
+    "entered_stage_at": "2025-09-01",
+    "time_in_pipe_days": 59
+  },
+  {
+    "candidate_id": "cand_456",
+    "stage": "screening",
+    "entered_stage_at": "2025-10-15",
+    "time_in_pipe_days": 14
+  },
+  {
+    "candidate_id": "cand_789",
+    "stage": "manager_review",
+    "entered_stage_at": "2025-09-20",
+    "time_in_pipe_days": 40
+  },
+  {
+    "candidate_id": "cand_101",
+    "stage": "screening",
+    "entered_stage_at": "2025-10-20",
+    "time_in_pipe_days": 9
+  },
+  {
+    "candidate_id": "cand_202",
+    "stage": "manager_review",
+    "entered_stage_at": "2025-09-10",
+    "time_in_pipe_days": 50
+  },
+  {
+    "candidate_id": "cand_123",
+    "role_id": "role_002",
+    "stage": "screening",
+    "entered_stage_at": "2025-10-10",
+    "time_in_pipe_days": 19
+  }
+]
+

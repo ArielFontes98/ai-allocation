@@ -1,0 +1,109 @@
+[
+  {
+    "id": "cand_123",
+    "name": "Jane Doe",
+    "type": "internal",
+    "linkedin_url": "https://www.linkedin.com/in/janedoe",
+    "country": "Brazil",
+    "time_zone": "UTC-03:00",
+    "languages": [
+      {"code": "en", "level": "C1"},
+      {"code": "pt", "level": "C2"}
+    ],
+    "experience_years_total": 6,
+    "experience_domains": ["Credit Risk", "Payments"],
+    "skills": ["Python", "SQL", "dbt", "Experimentation", "ML Serving"],
+    "tools": ["Databricks", "Airflow", "Snowflake", "QuickSight", "Git", "MLflow"],
+    "internal_history": {
+      "function": "BA",
+      "tenure_months": 18,
+      "last_bu": "Retail Credit"
+    },
+    "availability_date": "2026-02-01",
+    "notes": "Strong background in credit modeling with 6 years experience. Internal candidate from Retail Credit BU."
+  },
+  {
+    "id": "cand_456",
+    "name": "Carlos Silva",
+    "type": "external",
+    "linkedin_url": "https://www.linkedin.com/in/carlossilva",
+    "country": "Brazil",
+    "time_zone": "UTC-03:00",
+    "languages": [
+      {"code": "en", "level": "C2"},
+      {"code": "pt", "level": "C2"},
+      {"code": "es", "level": "B2"}
+    ],
+    "experience_years_total": 8,
+    "experience_domains": ["Credit Risk", "Fraud Detection", "Risk Analytics"],
+    "skills": ["Python", "R", "SQL", "MLOps", "Feature Store", "dbt"],
+    "tools": ["Databricks", "SQL", "Python", "Airflow", "MLflow", "Kubernetes"],
+    "availability_date": "2026-01-15",
+    "notes": "Expert in credit risk with ML expertise. Strong Python/SQL skills, MLOps experience."
+  },
+  {
+    "id": "cand_789",
+    "name": "Ana Rodriguez",
+    "type": "internal",
+    "linkedin_url": "https://www.linkedin.com/in/anarodriguez",
+    "country": "Mexico",
+    "time_zone": "UTC-06:00",
+    "languages": [
+      {"code": "en", "level": "C1"},
+      {"code": "es", "level": "C2"}
+    ],
+    "experience_years_total": 5,
+    "experience_domains": ["Payments", "Fraud Detection"],
+    "skills": ["Python", "SQL", "Experimentation", "A/B Testing"],
+    "tools": ["Databricks", "SQL", "Python", "Git", "QuickSight"],
+    "internal_history": {
+      "function": "DS",
+      "tenure_months": 24,
+      "last_bu": "Payments"
+    },
+    "availability_date": "2026-03-01",
+    "notes": "Internal candidate from Payments team. Strong in experimentation and analytics."
+  },
+  {
+    "id": "cand_101",
+    "name": "Raj Patel",
+    "type": "external",
+    "linkedin_url": "https://www.linkedin.com/in/rajpatel",
+    "country": "United States",
+    "time_zone": "UTC-05:00",
+    "languages": [
+      {"code": "en", "level": "C2"}
+    ],
+    "experience_years_total": 7,
+    "experience_domains": ["Credit Risk", "Risk Modeling"],
+    "skills": ["Python", "SQL", "MLOps", "Feature Store", "dbt", "Experimentation"],
+    "tools": ["Databricks", "SQL", "Python", "Airflow", "MLflow", "Snowflake"],
+    "availability_date": "2026-02-15",
+    "notes": "Senior data scientist with credit risk expertise. Excellent technical and business skills."
+  },
+  {
+    "id": "cand_202",
+    "name": "Maria Santos",
+    "type": "internal",
+    "linkedin_url": "https://www.linkedin.com/in/mariasantos",
+    "country": "Colombia",
+    "time_zone": "UTC-05:00",
+    "languages": [
+      {"code": "en", "level": "B2"},
+      {"code": "es", "level": "C2"},
+      {"code": "pt", "level": "B1"}
+    ],
+    "experience_years_total": 4,
+    "experience_domains": ["Payments"],
+    "skills": ["Python", "SQL", "Experimentation"],
+    "tools": ["Databricks", "SQL", "Python", "Git"],
+    "internal_history": {
+      "function": "DS",
+      "tenure_months": 12,
+      "last_bu": "Payments"
+    },
+    "availability_date": "2026-02-20",
+    "notes": "Internal candidate with payments domain experience. Growing in technical skills."
+  }
+]
+

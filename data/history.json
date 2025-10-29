@@ -1,0 +1,39 @@
+[
+  {
+    "candidate_id": "cand_123",
+    "function": "BA",
+    "tenure_months": 18,
+    "last_bu": "Retail Credit",
+    "performance_rating": "exceeds",
+    "promotions": 1,
+    "notable_achievements": [
+      "Led credit model refresh project",
+      "Improved model accuracy by 5%",
+      "Mentored 2 junior analysts"
+    ]
+  },
+  {
+    "candidate_id": "cand_789",
+    "function": "DS",
+    "tenure_months": 24,
+    "last_bu": "Payments",
+    "performance_rating": "meets",
+    "promotions": 0,
+    "notable_achievements": [
+      "Built experimentation framework",
+      "Improved payment conversion by 3%"
+    ]
+  },
+  {
+    "candidate_id": "cand_202",
+    "function": "DS",
+    "tenure_months": 12,
+    "last_bu": "Payments",
+    "performance_rating": "meets",
+    "promotions": 0,
+    "notable_achievements": [
+      "Completed payments analytics projects"
+    ]
+  }
+]
+

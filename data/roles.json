@@ -1,0 +1,129 @@
+[
+  {
+    "id": "role_001",
+    "title": "Senior Data Scientist - Credit",
+    "function": "DS",
+    "subfunction": "Credit Modeling",
+    "country": "Brazil",
+    "work_model": "Hybrid",
+    "start_preference": "2026-01-15",
+    "reporting_line": "DS Manager, Credit",
+    "target_levels": ["IC6"],
+    "level_flex_range": ["IC6", "IC7"],
+    "internal_first_strategy": "internal_only",
+    "internal_days": 20,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["impact_delivery", "stakeholder_mgmt", "sql", "python", "credit_domain"],
+    "preferred_skills": ["mlops", "feature_store", "dbt"],
+    "tools_top5": ["Databricks", "SQL", "Python", "Airflow", "MLflow"],
+    "day_in_the_life": [
+      "Work with credit team to develop and maintain default risk models",
+      "Collaborate with engineering on model deployment and monitoring",
+      "Present insights to business stakeholders on credit performance"
+    ],
+    "near_term_scope": {
+      "challenges": ["Stabilize default model monitoring", "Reduce time-to-deploy"],
+      "projects": ["Scorecard refresh", "Champion/Challenger experiment"],
+      "kpis": ["NPL", "Approval Rate", "TTM Deploys"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.45,
+      "function_skills": 0.35,
+      "tools": 0.10,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-29",
+    "age_days": 12
+  },
+  {
+    "id": "role_002",
+    "title": "Staff Data Scientist - Payments",
+    "function": "DS",
+    "subfunction": "Payments Analytics",
+    "country": "Mexico",
+    "work_model": "Remote",
+    "start_preference": "2026-02-01",
+    "reporting_line": "DS Manager, Payments",
+    "target_levels": ["IC7"],
+    "level_flex_range": ["IC6", "IC7", "IC8"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 15,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["impact_delivery", "stakeholder_mgmt", "sql", "python", "experimentation"],
+    "preferred_skills": ["ab_testing", "statistical_modeling", "product_analytics"],
+    "tools_top5": ["Databricks", "SQL", "Python", "Git", "QuickSight"],
+    "day_in_the_life": [
+      "Lead experimentation and A/B testing for payments products",
+      "Build analytical frameworks for payment metrics",
+      "Partner with product team on feature launches"
+    ],
+    "near_term_scope": {
+      "challenges": ["Scale experimentation platform", "Improve payment conversion"],
+      "projects": ["New payment method analysis", "Fraud prevention models"],
+      "kpis": ["Conversion Rate", "Payment Success Rate", "Experiment Velocity"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.40,
+      "function_skills": 0.40,
+      "tools": 0.10,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-20",
+    "age_days": 21
+  },
+  {
+    "id": "role_003",
+    "title": "Senior Data Scientist - Credit Risk",
+    "function": "DS",
+    "subfunction": "Risk Analytics",
+    "country": "United States",
+    "work_model": "Remote",
+    "start_preference": "2026-01-30",
+    "reporting_line": "DS Manager, Risk",
+    "target_levels": ["IC6"],
+    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "internal_first_strategy": "open",
+    "internal_days": 0,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["impact_delivery", "sql", "python", "credit_domain", "mlops"],
+    "preferred_skills": ["feature_store", "model_monitoring", "ml_serving"],
+    "tools_top5": ["Databricks", "SQL", "Python", "Airflow", "MLflow"],
+    "day_in_the_life": [
+      "Develop credit risk models for loan approval",
+      "Monitor model performance and retrain as needed",
+      "Work with engineering on production ML systems"
+    ],
+    "near_term_scope": {
+      "challenges": ["Model drift detection", "Real-time scoring"],
+      "projects": ["New credit model", "MLOps pipeline"],
+      "kpis": ["Model Accuracy", "Inference Latency", "False Positive Rate"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.45,
+      "function_skills": 0.35,
+      "tools": 0.15,
+      "background_fit": 0.05
+    },
+    "created_at": "2025-10-15",
+    "age_days": 26
+  }
+]
+
