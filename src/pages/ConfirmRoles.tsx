@@ -116,7 +116,7 @@ export function ConfirmRoles() {
                           </button>
                           <button
                             onClick={() => handleConfirm(role)}
-                            className="px-6 py-2.5 bg-white text-primary border border-primary rounded-xl font-semibold hover:bg-primary hover:text-white transition-colors flex items-center gap-2 shadow-md"
+                            className="px-6 py-2.5 bg-white text-primary border-2 border-primary rounded-xl font-semibold hover:bg-purple-50 hover:text-primary transition-colors flex items-center gap-2 shadow-md"
                           >
                             <CheckCircle className="w-5 h-5" />
                             Confirm Position
@@ -128,7 +128,7 @@ export function ConfirmRoles() {
                           <span className="font-medium">Confirmed</span>
                           <button
                             onClick={() => handleConfirm(role)}
-                            className="ml-2 px-4 py-2 bg-white text-primary border border-primary rounded-xl text-sm font-semibold hover:bg-primary hover:text-white transition-colors flex items-center gap-2 shadow-md"
+                            className="ml-2 px-4 py-2 bg-white text-primary border-2 border-primary rounded-xl text-sm font-semibold hover:bg-purple-50 hover:text-primary transition-colors flex items-center gap-2 shadow-md"
                           >
                             Open Intake
                             <ArrowRight className="w-4 h-4" />

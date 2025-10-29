@@ -166,8 +166,8 @@ export function TAReviewSend() {
             onClick={() => setSelectedView('by-role')}
             className={`px-6 py-3 rounded-xl font-semibold transition-colors shadow-md ${
               selectedView === 'by-role'
-                ? 'bg-primary text-white active:bg-white active:text-primary active:border active:border-primary'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-white text-primary border-2 border-primary'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent'
             }`}
           >
             By Role
@@ -176,8 +176,8 @@ export function TAReviewSend() {
             onClick={() => setSelectedView('by-candidate')}
             className={`px-6 py-3 rounded-xl font-semibold transition-colors shadow-md ${
               selectedView === 'by-candidate'
-                ? 'bg-primary text-white active:bg-white active:text-primary active:border active:border-primary'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? 'bg-white text-primary border-2 border-primary'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200 border-2 border-transparent'
             }`}
           >
             By Candidate
@@ -261,7 +261,7 @@ export function TAReviewSend() {
           <div className="flex gap-3">
             <button
               onClick={handleGenerateBatch}
-              className="px-6 py-3 bg-white text-primary border border-primary rounded-xl font-semibold hover:bg-primary hover:text-white transition-colors shadow-md"
+              className="px-6 py-3 bg-white text-primary border-2 border-primary rounded-xl font-semibold hover:bg-purple-50 hover:text-primary transition-colors shadow-md"
             >
               Generate This Week's Picks
             </button>

@@ -639,7 +639,7 @@ export function RoleIntake() {
         <div className="flex justify-end">
           <button
             onClick={handleSave}
-            className="px-6 py-3 bg-white text-primary border border-primary rounded-xl font-semibold hover:bg-primary hover:text-white transition-colors flex items-center gap-2 shadow-lg"
+            className="px-6 py-3 bg-white text-primary border-2 border-primary rounded-xl font-semibold hover:bg-purple-50 hover:text-primary transition-colors flex items-center gap-2 shadow-lg"
           >
             <Save className="w-5 h-5" />
             Save Role Intake
