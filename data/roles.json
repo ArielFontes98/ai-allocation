@@ -8,26 +8,60 @@
     "work_model": "Hybrid",
     "start_preference": "2026-01-15",
     "reporting_line": "DS Manager, Credit",
-    "target_levels": ["IC6"],
-    "level_flex_range": ["IC6", "IC7"],
+    "target_levels": [
+      "IC6"
+    ],
+    "level_flex_range": [
+      "IC6",
+      "IC7"
+    ],
     "internal_first_strategy": "internal_only",
     "internal_days": 20,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["impact_delivery", "stakeholder_mgmt", "sql", "python", "credit_domain"],
-    "preferred_skills": ["mlops", "feature_store", "dbt"],
-    "tools_top5": ["Databricks", "SQL", "Python", "Airflow", "MLflow"],
+    "leveling_must_haves": [
+      "impact_delivery",
+      "stakeholder_mgmt",
+      "sql",
+      "python",
+      "credit_domain"
+    ],
+    "preferred_skills": [
+      "mlops",
+      "feature_store",
+      "dbt"
+    ],
+    "tools_top5": [
+      "Databricks",
+      "SQL",
+      "Python",
+      "Airflow",
+      "MLflow"
+    ],
     "day_in_the_life": [
       "Work with credit team to develop and maintain default risk models",
       "Collaborate with engineering on model deployment and monitoring",
       "Present insights to business stakeholders on credit performance"
     ],
     "near_term_scope": {
-      "challenges": ["Stabilize default model monitoring", "Reduce time-to-deploy"],
-      "projects": ["Scorecard refresh", "Champion/Challenger experiment"],
-      "kpis": ["NPL", "Approval Rate", "TTM Deploys"]
+      "challenges": [
+        "Stabilize default model monitoring",
+        "Reduce time-to-deploy"
+      ],
+      "projects": [
+        "Scorecard refresh",
+        "Champion/Challenger experiment"
+      ],
+      "kpis": [
+        "NPL",
+        "Approval Rate",
+        "TTM Deploys"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
@@ -35,11 +69,12 @@
     "weights": {
       "leveling": 0.45,
       "function_skills": 0.35,
-      "tools": 0.10,
-      "background_fit": 0.10
+      "tools": 0.1,
+      "background_fit": 0.1
     },
     "created_at": "2025-10-29",
-    "age_days": 12
+    "age_days": 12,
+    "manager": "John Doe"
   },
   {
     "id": "role_002",
@@ -50,38 +85,74 @@
     "work_model": "Remote",
     "start_preference": "2026-02-01",
     "reporting_line": "DS Manager, Payments",
-    "target_levels": ["IC7"],
-    "level_flex_range": ["IC6", "IC7", "IC8"],
+    "target_levels": [
+      "IC7"
+    ],
+    "level_flex_range": [
+      "IC6",
+      "IC7",
+      "IC8"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 15,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["impact_delivery", "stakeholder_mgmt", "sql", "python", "experimentation"],
-    "preferred_skills": ["ab_testing", "statistical_modeling", "product_analytics"],
-    "tools_top5": ["Databricks", "SQL", "Python", "Git", "QuickSight"],
+    "leveling_must_haves": [
+      "impact_delivery",
+      "stakeholder_mgmt",
+      "sql",
+      "python",
+      "experimentation"
+    ],
+    "preferred_skills": [
+      "ab_testing",
+      "statistical_modeling",
+      "product_analytics"
+    ],
+    "tools_top5": [
+      "Databricks",
+      "SQL",
+      "Python",
+      "Git",
+      "QuickSight"
+    ],
     "day_in_the_life": [
       "Lead experimentation and A/B testing for payments products",
       "Build analytical frameworks for payment metrics",
       "Partner with product team on feature launches"
     ],
     "near_term_scope": {
-      "challenges": ["Scale experimentation platform", "Improve payment conversion"],
-      "projects": ["New payment method analysis", "Fraud prevention models"],
-      "kpis": ["Conversion Rate", "Payment Success Rate", "Experiment Velocity"]
+      "challenges": [
+        "Scale experimentation platform",
+        "Improve payment conversion"
+      ],
+      "projects": [
+        "New payment method analysis",
+        "Fraud prevention models"
+      ],
+      "kpis": [
+        "Conversion Rate",
+        "Payment Success Rate",
+        "Experiment Velocity"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
-      "leveling": 0.40,
-      "function_skills": 0.40,
-      "tools": 0.10,
-      "background_fit": 0.10
+      "leveling": 0.4,
+      "function_skills": 0.4,
+      "tools": 0.1,
+      "background_fit": 0.1
     },
     "created_at": "2025-10-20",
-    "age_days": 21
+    "age_days": 21,
+    "manager": "Jane Smith"
   },
   {
     "id": "role_003",
@@ -92,26 +163,61 @@
     "work_model": "Remote",
     "start_preference": "2026-01-30",
     "reporting_line": "DS Manager, Risk",
-    "target_levels": ["IC6"],
-    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "target_levels": [
+      "IC6"
+    ],
+    "level_flex_range": [
+      "IC5",
+      "IC6",
+      "IC7"
+    ],
     "internal_first_strategy": "open",
     "internal_days": 0,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["impact_delivery", "sql", "python", "credit_domain", "mlops"],
-    "preferred_skills": ["feature_store", "model_monitoring", "ml_serving"],
-    "tools_top5": ["Databricks", "SQL", "Python", "Airflow", "MLflow"],
+    "leveling_must_haves": [
+      "impact_delivery",
+      "sql",
+      "python",
+      "credit_domain",
+      "mlops"
+    ],
+    "preferred_skills": [
+      "feature_store",
+      "model_monitoring",
+      "ml_serving"
+    ],
+    "tools_top5": [
+      "Databricks",
+      "SQL",
+      "Python",
+      "Airflow",
+      "MLflow"
+    ],
     "day_in_the_life": [
       "Develop credit risk models for loan approval",
       "Monitor model performance and retrain as needed",
       "Work with engineering on production ML systems"
     ],
     "near_term_scope": {
-      "challenges": ["Model drift detection", "Real-time scoring"],
-      "projects": ["New credit model", "MLOps pipeline"],
-      "kpis": ["Model Accuracy", "Inference Latency", "False Positive Rate"]
+      "challenges": [
+        "Model drift detection",
+        "Real-time scoring"
+      ],
+      "projects": [
+        "New credit model",
+        "MLOps pipeline"
+      ],
+      "kpis": [
+        "Model Accuracy",
+        "Inference Latency",
+        "False Positive Rate"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
@@ -123,7 +229,8 @@
       "background_fit": 0.05
     },
     "created_at": "2025-10-15",
-    "age_days": 26
+    "age_days": 26,
+    "manager": "Bob Johnson"
   },
   {
     "id": "role_004",
@@ -134,38 +241,74 @@
     "work_model": "Hybrid",
     "start_preference": "2026-02-15",
     "reporting_line": "DS Manager, Fraud",
-    "target_levels": ["IC6"],
-    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "target_levels": [
+      "IC6"
+    ],
+    "level_flex_range": [
+      "IC5",
+      "IC6",
+      "IC7"
+    ],
     "internal_first_strategy": "open",
     "internal_days": 0,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["impact_delivery", "sql", "python", "fraud_detection", "ml"],
-    "preferred_skills": ["statistical_modeling", "mlops", "model_monitoring"],
-    "tools_top5": ["Databricks", "SQL", "Python", "Git", "MLflow"],
+    "leveling_must_haves": [
+      "impact_delivery",
+      "sql",
+      "python",
+      "fraud_detection",
+      "ml"
+    ],
+    "preferred_skills": [
+      "statistical_modeling",
+      "mlops",
+      "model_monitoring"
+    ],
+    "tools_top5": [
+      "Databricks",
+      "SQL",
+      "Python",
+      "Git",
+      "MLflow"
+    ],
     "day_in_the_life": [
       "Develop fraud detection models",
       "Monitor fraud metrics and model performance",
       "Collaborate with security and product teams"
     ],
     "near_term_scope": {
-      "challenges": ["Reduce false positives", "Improve detection accuracy"],
-      "projects": ["New fraud model", "Real-time scoring"],
-      "kpis": ["False Positive Rate", "Detection Accuracy", "Model Latency"]
+      "challenges": [
+        "Reduce false positives",
+        "Improve detection accuracy"
+      ],
+      "projects": [
+        "New fraud model",
+        "Real-time scoring"
+      ],
+      "kpis": [
+        "False Positive Rate",
+        "Detection Accuracy",
+        "Model Latency"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
-      "leveling": 0.40,
-      "function_skills": 0.40,
-      "tools": 0.10,
-      "background_fit": 0.10
+      "leveling": 0.4,
+      "function_skills": 0.4,
+      "tools": 0.1,
+      "background_fit": 0.1
     },
     "created_at": "2025-10-25",
-    "age_days": 16
+    "age_days": 16,
+    "manager": "Alice Williams"
   },
   {
     "id": "role_005",
@@ -176,38 +319,75 @@
     "work_model": "Remote",
     "start_preference": "2026-01-20",
     "reporting_line": "DS Manager, Engineering",
-    "target_levels": ["IC5"],
-    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "target_levels": [
+      "IC5"
+    ],
+    "level_flex_range": [
+      "IC4",
+      "IC5",
+      "IC6"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 20,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "python", "mlops", "feature_store"],
-    "preferred_skills": ["kubernetes", "docker", "model_monitoring", "ml_serving"],
-    "tools_top5": ["Databricks", "SQL", "Python", "Airflow", "MLflow", "Kubernetes"],
+    "leveling_must_haves": [
+      "sql",
+      "python",
+      "mlops",
+      "feature_store"
+    ],
+    "preferred_skills": [
+      "kubernetes",
+      "docker",
+      "model_monitoring",
+      "ml_serving"
+    ],
+    "tools_top5": [
+      "Databricks",
+      "SQL",
+      "Python",
+      "Airflow",
+      "MLflow",
+      "Kubernetes"
+    ],
     "day_in_the_life": [
       "Build and maintain MLOps infrastructure",
       "Deploy and monitor ML models in production",
       "Collaborate with data scientists and engineers"
     ],
     "near_term_scope": {
-      "challenges": ["Scale ML infrastructure", "Reduce deployment time"],
-      "projects": ["Feature store migration", "Model monitoring platform"],
-      "kpis": ["Deployment Time", "Model Uptime", "Inference Latency"]
+      "challenges": [
+        "Scale ML infrastructure",
+        "Reduce deployment time"
+      ],
+      "projects": [
+        "Feature store migration",
+        "Model monitoring platform"
+      ],
+      "kpis": [
+        "Deployment Time",
+        "Model Uptime",
+        "Inference Latency"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
-      "leveling": 0.30,
-      "function_skills": 0.50,
+      "leveling": 0.3,
+      "function_skills": 0.5,
       "tools": 0.15,
       "background_fit": 0.05
     },
     "created_at": "2025-10-18",
-    "age_days": 23
+    "age_days": 23,
+    "manager": "Charlie Brown"
   },
   {
     "id": "role_006",
@@ -218,38 +398,73 @@
     "work_model": "Hybrid",
     "start_preference": "2026-02-10",
     "reporting_line": "BA Manager, Credit",
-    "target_levels": ["IC5"],
-    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "target_levels": [
+      "IC5"
+    ],
+    "level_flex_range": [
+      "IC4",
+      "IC5",
+      "IC6"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 15,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "stakeholder_mgmt", "credit_domain", "impact_delivery"],
-    "preferred_skills": ["dbt", "experimentation", "business_analytics"],
-    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "leveling_must_haves": [
+      "sql",
+      "stakeholder_mgmt",
+      "credit_domain",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "dbt",
+      "experimentation",
+      "business_analytics"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "dbt",
+      "QuickSight",
+      "Git"
+    ],
     "day_in_the_life": [
       "Analyze credit performance metrics",
       "Create dashboards and reports for stakeholders",
       "Support business decisions with data insights"
     ],
     "near_term_scope": {
-      "challenges": ["Improve reporting automation", "Enhance metric visibility"],
-      "projects": ["Credit dashboard refresh", "Metric standardization"],
-      "kpis": ["Report Accuracy", "Dashboard Usage", "Insight Delivery Time"]
+      "challenges": [
+        "Improve reporting automation",
+        "Enhance metric visibility"
+      ],
+      "projects": [
+        "Credit dashboard refresh",
+        "Metric standardization"
+      ],
+      "kpis": [
+        "Report Accuracy",
+        "Dashboard Usage",
+        "Insight Delivery Time"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
-      "leveling": 0.40,
+      "leveling": 0.4,
       "function_skills": 0.35,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-22",
-    "age_days": 19
+    "age_days": 19,
+    "manager": "Diana Martinez"
   },
   {
     "id": "role_007",
@@ -260,26 +475,61 @@
     "work_model": "Remote",
     "start_preference": "2026-02-20",
     "reporting_line": "DS Manager, Product",
-    "target_levels": ["IC7"],
-    "level_flex_range": ["IC6", "IC7", "IC8"],
+    "target_levels": [
+      "IC7"
+    ],
+    "level_flex_range": [
+      "IC6",
+      "IC7",
+      "IC8"
+    ],
     "internal_first_strategy": "open",
     "internal_days": 0,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["impact_delivery", "stakeholder_mgmt", "sql", "python", "product_analytics"],
-    "preferred_skills": ["experimentation", "ab_testing", "statistical_modeling"],
-    "tools_top5": ["Databricks", "SQL", "Python", "Git", "QuickSight"],
+    "leveling_must_haves": [
+      "impact_delivery",
+      "stakeholder_mgmt",
+      "sql",
+      "python",
+      "product_analytics"
+    ],
+    "preferred_skills": [
+      "experimentation",
+      "ab_testing",
+      "statistical_modeling"
+    ],
+    "tools_top5": [
+      "Databricks",
+      "SQL",
+      "Python",
+      "Git",
+      "QuickSight"
+    ],
     "day_in_the_life": [
       "Lead product analytics initiatives",
       "Design and analyze A/B tests",
       "Partner with product managers on feature launches"
     ],
     "near_term_scope": {
-      "challenges": ["Scale experimentation", "Improve product insights"],
-      "projects": ["New product metrics", "Experimentation framework"],
-      "kpis": ["Experiment Velocity", "Insight Quality", "Product Impact"]
+      "challenges": [
+        "Scale experimentation",
+        "Improve product insights"
+      ],
+      "projects": [
+        "New product metrics",
+        "Experimentation framework"
+      ],
+      "kpis": [
+        "Experiment Velocity",
+        "Insight Quality",
+        "Product Impact"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
@@ -287,11 +537,12 @@
     "weights": {
       "leveling": 0.35,
       "function_skills": 0.45,
-      "tools": 0.10,
-      "background_fit": 0.10
+      "tools": 0.1,
+      "background_fit": 0.1
     },
     "created_at": "2025-10-10",
-    "age_days": 31
+    "age_days": 31,
+    "manager": "Edward Davis"
   },
   {
     "id": "role_008",
@@ -302,38 +553,73 @@
     "work_model": "Remote",
     "start_preference": "2026-02-05",
     "reporting_line": "BA Manager, Payments",
-    "target_levels": ["IC5"],
-    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "target_levels": [
+      "IC5"
+    ],
+    "level_flex_range": [
+      "IC4",
+      "IC5",
+      "IC6"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 20,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_hημαves": ["sql", "stakeholder_mgmt", "payments_domain", "impact_delivery"],
-    "preferred_skills": ["dbt", "experimentation", "business_analytics"],
-    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "leveling_must_h\u03b7\u03bc\u03b1ves": [
+      "sql",
+      "stakeholder_mgmt",
+      "payments_domain",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "dbt",
+      "experimentation",
+      "business_analytics"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "dbt",
+      "QuickSight",
+      "Git"
+    ],
     "day_in_the_life": [
       "Analyze payment metrics and trends",
       "Build dashboards for payment operations",
       "Support product and business decisions with data"
     ],
     "near_term_scope": {
-      "challenges": ["Improve payment analytics", "Enhance reporting"],
-      "projects": ["Payment dashboard", "Metric automation"],
-      "kpis": ["Dashboard Usage", "Report Accuracy", "Insight Delivery"]
+      "challenges": [
+        "Improve payment analytics",
+        "Enhance reporting"
+      ],
+      "projects": [
+        "Payment dashboard",
+        "Metric automation"
+      ],
+      "kpis": [
+        "Dashboard Usage",
+        "Report Accuracy",
+        "Insight Delivery"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
       "leveling": 0.35,
-      "function_skills": 0.40,
+      "function_skills": 0.4,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-28",
-    "age_days": 13
+    "age_days": 13,
+    "manager": "Fiona Anderson"
   },
   {
     "id": "role_009",
@@ -344,38 +630,73 @@
     "work_model": "Hybrid",
     "start_preference": "2026-02-25",
     "reporting_line": "BA Manager, Product",
-    "target_levels": ["IC4"],
-    "level_flex_range": ["IC3", "IC4", "IC5"],
+    "target_levels": [
+      "IC4"
+    ],
+    "level_flex_range": [
+      "IC3",
+      "IC4",
+      "IC5"
+    ],
     "internal_first_strategy": "open",
     "internal_days": 0,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "stakeholder_mgmt", "product_analytics", "impact_delivery"],
-    "preferred_skills": ["ab_testing", "experimentation", "business_analytics"],
-    "tools_top5": ["SQL", "Python", "QuickSight", "Git", "dbt"],
+    "leveling_must_haves": [
+      "sql",
+      "stakeholder_mgmt",
+      "product_analytics",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "ab_testing",
+      "experimentation",
+      "business_analytics"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "QuickSight",
+      "Git",
+      "dbt"
+    ],
     "day_in_the_life": [
       "Support product teams with data analysis",
       "Create product performance dashboards",
       "Analyze user behavior and feature adoption"
     ],
     "near_term_scope": {
-      "challenges": ["Improve product insights", "Automate reporting"],
-      "projects": ["Product metrics dashboard", "User behavior analysis"],
-      "kpis": ["Dashboard Usage", "Insight Quality", "Report Automation"]
+      "challenges": [
+        "Improve product insights",
+        "Automate reporting"
+      ],
+      "projects": [
+        "Product metrics dashboard",
+        "User behavior analysis"
+      ],
+      "kpis": [
+        "Dashboard Usage",
+        "Insight Quality",
+        "Report Automation"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
-      "leveling": 0.40,
+      "leveling": 0.4,
       "function_skills": 0.35,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-26",
-    "age_days": 15
+    "age_days": 15,
+    "manager": "George Wilson"
   },
   {
     "id": "role_010",
@@ -386,38 +707,74 @@
     "work_model": "Remote",
     "start_preference": "2026-03-01",
     "reporting_line": "BA Manager, Risk",
-    "target_levels": ["IC6"],
-    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "target_levels": [
+      "IC6"
+    ],
+    "level_flex_range": [
+      "IC5",
+      "IC6",
+      "IC7"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 25,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "stakeholder_mgmt", "credit_domain", "risk_analytics", "impact_delivery"],
-    "preferred_skills": ["dbt", "experimentation", "statistical_modeling"],
-    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "leveling_must_haves": [
+      "sql",
+      "stakeholder_mgmt",
+      "credit_domain",
+      "risk_analytics",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "dbt",
+      "experimentation",
+      "statistical_modeling"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "dbt",
+      "QuickSight",
+      "Git"
+    ],
     "day_in_the_life": [
       "Lead credit risk analytics initiatives",
       "Build comprehensive risk dashboards",
       "Partner with risk and credit teams on strategic decisions"
     ],
     "near_term_scope": {
-      "challenges": ["Improve risk visibility", "Scale analytics"],
-      "projects": ["Risk dashboard overhaul", "Analytics automation"],
-      "kpis": ["Dashboard Usage", "Decision Impact", "Automation Rate"]
+      "challenges": [
+        "Improve risk visibility",
+        "Scale analytics"
+      ],
+      "projects": [
+        "Risk dashboard overhaul",
+        "Analytics automation"
+      ],
+      "kpis": [
+        "Dashboard Usage",
+        "Decision Impact",
+        "Automation Rate"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
       "leveling": 0.35,
-      "function_skills": 0.40,
+      "function_skills": 0.4,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-24",
-    "age_days": 17
+    "age_days": 17,
+    "manager": "Helen Taylor"
   },
   {
     "id": "role_011",
@@ -428,35 +785,69 @@
     "work_model": "Hybrid",
     "start_preference": "2026-02-15",
     "reporting_line": "BA Manager, Fraud",
-    "target_levels": ["IC5"],
-    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "target_levels": [
+      "IC5"
+    ],
+    "level_flex_range": [
+      "IC4",
+      "IC5",
+      "IC6"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 15,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "stakeholder_mgmt", "fraud_detection", "impact_delivery"],
-    "preferred_skills": ["dbt", "experimentation", "statistical_modeling"],
-    "tools_top5": ["SQL", "Python", "QuickSight", "Git", "dbt"],
+    "leveling_must_haves": [
+      "sql",
+      "stakeholder_mgmt",
+      "fraud_detection",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "dbt",
+      "experimentation",
+      "statistical_modeling"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "QuickSight",
+      "Git",
+      "dbt"
+    ],
     "day_in_the_life": [
       "Analyze fraud patterns and trends",
       "Build fraud monitoring dashboards",
       "Support fraud prevention initiatives with data insights"
     ],
     "near_term_scope": {
-      "challenges": ["Reduce false positives", "Improve fraud detection"],
-      "projects": ["Fraud dashboard", "Pattern analysis"],
-      "kpis": ["False Positive Rate", "Dashboard Usage", "Detection Time"]
+      "challenges": [
+        "Reduce false positives",
+        "Improve fraud detection"
+      ],
+      "projects": [
+        "Fraud dashboard",
+        "Pattern analysis"
+      ],
+      "kpis": [
+        "False Positive Rate",
+        "Dashboard Usage",
+        "Detection Time"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
       "leveling": 0.35,
-      "function_skills": 0.40,
+      "function_skills": 0.4,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-27",
     "age_days": 14,
@@ -472,35 +863,69 @@
     "work_model": "Remote",
     "start_preference": "2026-03-01",
     "reporting_line": "BA Manager, Product",
-    "target_levels": ["IC5"],
-    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "target_levels": [
+      "IC5"
+    ],
+    "level_flex_range": [
+      "IC4",
+      "IC5",
+      "IC6"
+    ],
     "internal_first_strategy": "open",
     "internal_days": 0,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "stakeholder_mgmt", "product_analytics", "impact_delivery"],
-    "preferred_skills": ["ab_testing", "experimentation", "business_analytics"],
-    "tools_top5": ["SQL", "Python", "QuickSight", "Git", "dbt"],
+    "leveling_must_haves": [
+      "sql",
+      "stakeholder_mgmt",
+      "product_analytics",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "ab_testing",
+      "experimentation",
+      "business_analytics"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "QuickSight",
+      "Git",
+      "dbt"
+    ],
     "day_in_the_life": [
       "Lead product analytics for payment features",
       "Analyze user behavior and feature adoption",
       "Partner with product teams on feature launches"
     ],
     "near_term_scope": {
-      "challenges": ["Scale analytics", "Improve product insights"],
-      "projects": ["Product dashboard", "User behavior analysis"],
-      "kpis": ["Dashboard Usage", "Insight Quality", "Feature Adoption"]
+      "challenges": [
+        "Scale analytics",
+        "Improve product insights"
+      ],
+      "projects": [
+        "Product dashboard",
+        "User behavior analysis"
+      ],
+      "kpis": [
+        "Dashboard Usage",
+        "Insight Quality",
+        "Feature Adoption"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
       "leveling": 0.35,
-      "function_skills": 0.40,
+      "function_skills": 0.4,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-25",
     "age_days": 16,
@@ -516,35 +941,69 @@
     "work_model": "Hybrid",
     "start_preference": "2026-02-20",
     "reporting_line": "BA Manager, Risk",
-    "target_levels": ["IC4"],
-    "level_flex_range": ["IC3", "IC4", "IC5"],
+    "target_levels": [
+      "IC4"
+    ],
+    "level_flex_range": [
+      "IC3",
+      "IC4",
+      "IC5"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 20,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "stakeholder_mgmt", "risk_analytics", "impact_delivery"],
-    "preferred_skills": ["dbt", "statistical_modeling", "business_analytics"],
-    "tools_top5": ["SQL", "Python", "QuickSight", "dbt", "Git"],
+    "leveling_must_haves": [
+      "sql",
+      "stakeholder_mgmt",
+      "risk_analytics",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "dbt",
+      "statistical_modeling",
+      "business_analytics"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "QuickSight",
+      "dbt",
+      "Git"
+    ],
     "day_in_the_life": [
       "Support risk analytics initiatives",
       "Build risk monitoring dashboards",
       "Analyze risk metrics and trends"
     ],
     "near_term_scope": {
-      "challenges": ["Improve risk visibility", "Automate reporting"],
-      "projects": ["Risk dashboard", "Metric automation"],
-      "kpis": ["Dashboard Usage", "Report Accuracy", "Automation Rate"]
+      "challenges": [
+        "Improve risk visibility",
+        "Automate reporting"
+      ],
+      "projects": [
+        "Risk dashboard",
+        "Metric automation"
+      ],
+      "kpis": [
+        "Dashboard Usage",
+        "Report Accuracy",
+        "Automation Rate"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
-      "leveling": 0.40,
+      "leveling": 0.4,
       "function_skills": 0.35,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-23",
     "age_days": 18,
@@ -560,35 +1019,70 @@
     "work_model": "Remote",
     "start_preference": "2026-03-10",
     "reporting_line": "BA Manager, Payments",
-    "target_levels": ["IC6"],
-    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "target_levels": [
+      "IC6"
+    ],
+    "level_flex_range": [
+      "IC5",
+      "IC6",
+      "IC7"
+    ],
     "internal_first_strategy": "internal_first",
     "internal_days": 25,
     "confidential": false,
     "languages_required": [
-      {"code": "en", "min": "C1"}
+      {
+        "code": "en",
+        "min": "C1"
+      }
     ],
-    "leveling_must_haves": ["sql", "stakeholder_mgmt", "payments_domain", "risk_analytics", "impact_delivery"],
-    "preferred_skills": ["dbt", "experimentation", "statistical_modeling"],
-    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "leveling_must_haves": [
+      "sql",
+      "stakeholder_mgmt",
+      "payments_domain",
+      "risk_analytics",
+      "impact_delivery"
+    ],
+    "preferred_skills": [
+      "dbt",
+      "experimentation",
+      "statistical_modeling"
+    ],
+    "tools_top5": [
+      "SQL",
+      "Python",
+      "dbt",
+      "QuickSight",
+      "Git"
+    ],
     "day_in_the_life": [
       "Lead payments analytics strategy",
       "Build comprehensive payments dashboards",
       "Partner with product and engineering on payment initiatives"
     ],
     "near_term_scope": {
-      "challenges": ["Scale analytics", "Improve payment insights"],
-      "projects": ["Payments dashboard overhaul", "Analytics automation"],
-      "kpis": ["Dashboard Usage", "Decision Impact", "Automation Rate"]
+      "challenges": [
+        "Scale analytics",
+        "Improve payment insights"
+      ],
+      "projects": [
+        "Payments dashboard overhaul",
+        "Analytics automation"
+      ],
+      "kpis": [
+        "Dashboard Usage",
+        "Decision Impact",
+        "Automation Rate"
+      ]
     },
     "hard_constraints": {
       "language_fluent": true
     },
     "weights": {
       "leveling": 0.35,
-      "function_skills": 0.40,
+      "function_skills": 0.4,
       "tools": 0.15,
-      "background_fit": 0.10
+      "background_fit": 0.1
     },
     "created_at": "2025-10-21",
     "age_days": 20,
