@@ -166,7 +166,7 @@ export function TAReviewSend() {
             onClick={() => setSelectedView('by-role')}
             className={`px-6 py-3 rounded-xl font-semibold transition-colors shadow-md ${
               selectedView === 'by-role'
-                ? 'bg-primary text-white'
+                ? 'bg-primary text-white active:bg-white active:text-primary active:border active:border-primary'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
@@ -176,7 +176,7 @@ export function TAReviewSend() {
             onClick={() => setSelectedView('by-candidate')}
             className={`px-6 py-3 rounded-xl font-semibold transition-colors shadow-md ${
               selectedView === 'by-candidate'
-                ? 'bg-primary text-white'
+                ? 'bg-primary text-white active:bg-white active:text-primary active:border active:border-primary'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
