@@ -96,9 +96,10 @@ export function TAReviewSend() {
 
       // Apply TA Responsible filter
       if (taResponsibleFilter) {
-        filtered = filtered.filter((role) => 
-          role.ta_responsible?.toLowerCase().includes(taResponsibleFilter.toLowerCase())
-        );
+        filtered = filtered.filter((role) => {
+          if (!role.ta_responsible) return false;
+          return role.ta_responsible.toLowerCase().includes(taResponsibleFilter.toLowerCase());
+        });
       }
 
       // Apply existing filters
