@@ -77,7 +77,7 @@ export function RoleIntake() {
   };
   
   const [formData, setFormData] = useState<Partial<Role>>(getInitialFormData());
-  const [wasAccessedDirectly, setWasAccessedDirectly] = useState(!pendingRoleIntake);
+  const wasAccessedDirectly = !pendingRoleIntake;
 
   // Clear pending intake after using it
   React.useEffect(() => {
