@@ -130,12 +130,19 @@ export function TAReviewSend() {
 
   const handleSendBatch = () => {
     const batch = useStore.getState().currentBatch;
+    // Se não houver batch, criar um automaticamente com os matches atuais
     if (!batch) {
-      addToast('Please generate a batch first', 'error');
-      return;
+      if (currentMatches.length === 0) {
+        addToast('No matches to send. Please ensure there are matching candidates.', 'error');
+        return;
+      }
+      const newBatch = createBatch(currentMatches.filter((m) => m.passed_constraints));
+      sendBatch(newBatch.id);
+      addToast('Batch created and sent to managers', 'success');
+    } else {
+      sendBatch(batch.id);
+      addToast('Batch sent to managers', 'success');
     }
-    sendBatch(batch.id);
-    addToast('Batch sent to managers', 'success');
   };
 
   const handleExportCSV = () => {

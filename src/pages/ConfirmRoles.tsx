@@ -1,15 +1,19 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useStore } from '../state/store';
 import { RoleCard } from '../components/RoleCard';
 import { addToast } from '../components/Layout';
-import { ArrowRight, AlertCircle } from 'lucide-react';
+import { ArrowRight, AlertCircle, CheckCircle } from 'lucide-react';
 import type { Role, Country, WorkModel } from '../types';
 import { addDays } from 'date-fns';
 
 export function ConfirmRoles() {
   const roles = useStore((state) => state.roles);
+  const navigate = useNavigate();
+  const setPendingRoleIntake = useStore((state) => state.setPendingRoleIntake);
   const [editingRole, setEditingRole] = useState<string | null>(null);
   const [formData, setFormData] = useState<Partial<Role>>({});
+  const [confirmedRoles, setConfirmedRoles] = useState<Set<string>>(new Set());
 
   const handleEdit = (role: Role) => {
     setEditingRole(role.id);
@@ -36,6 +40,37 @@ export function ConfirmRoles() {
     const bufferDays = 30;
     const minStartDate = addDays(today, bufferDays);
     return start < minStartDate;
+  };
+
+  const handleConfirm = (role: Role) => {
+    // Marcar como confirmado
+    setConfirmedRoles(new Set([...confirmedRoles, role.id]));
+    
+    // Preparar dados para Role Intake
+    setPendingRoleIntake({
+      ...role,
+      title: role.title || '',
+      reporting_line: role.reporting_line || '',
+      internal_first_strategy: role.internal_first_strategy || 'open',
+      internal_days: role.internal_days || 0,
+      confidential: role.confidential || false,
+      languages_required: role.languages_required || [],
+      leveling_must_haves: role.leveling_must_haves || [],
+      preferred_skills: role.preferred_skills || [],
+      tools_top5: role.tools_top5 || [],
+      day_in_the_life: role.day_in_the_life || [],
+      near_term_scope: role.near_term_scope || { challenges: [], projects: [], kpis: [] },
+      hard_constraints: role.hard_constraints || { language_fluent: true },
+      weights: role.weights || {
+        leveling: 0.45,
+        function_skills: 0.35,
+        tools: 0.10,
+        background_fit: 0.10,
+      },
+    });
+    
+    addToast('Role confirmed! Opening Role Intake...', 'success');
+    navigate('/intake');
   };
 
   return (
@@ -71,21 +106,35 @@ export function ConfirmRoles() {
                       </div>
                     )}
                     <div className="mt-4 flex gap-3">
-                      <button
-                        onClick={() => handleEdit(role)}
-                        className="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition-colors"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => {
-                          useStore.getState().setCurrentScreen('role-intake');
-                        }}
-                        className="px-4 py-2 bg-primary text-white rounded-xl font-medium hover:bg-primary-dark transition-colors flex items-center gap-2"
-                      >
-                        Continue to Role Intake
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
+                      {!confirmedRoles.has(role.id) ? (
+                        <>
+                          <button
+                            onClick={() => handleEdit(role)}
+                            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition-colors"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleConfirm(role)}
+                            className="px-4 py-2 bg-primary text-white rounded-xl font-medium hover:bg-primary-dark transition-colors flex items-center gap-2"
+                          >
+                            <CheckCircle className="w-4 h-4" />
+                            Confirm Position
+                          </button>
+                        </>
+                      ) : (
+                        <div className="flex items-center gap-2 px-4 py-2 bg-green-50 text-green-700 rounded-xl border border-green-200">
+                          <CheckCircle className="w-5 h-5" />
+                          <span className="font-medium">Confirmed</span>
+                          <button
+                            onClick={() => handleConfirm(role)}
+                            className="ml-2 px-3 py-1 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
+                          >
+                            Open Intake
+                            <ArrowRight className="w-3 h-3 inline ml-1" />
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </>
                 ) : (

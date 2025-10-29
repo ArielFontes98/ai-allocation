@@ -124,6 +124,173 @@
     },
     "created_at": "2025-10-15",
     "age_days": 26
+  },
+  {
+    "id": "role_004",
+    "title": "Senior Data Scientist - Fraud Detection",
+    "function": "DS",
+    "subfunction": "Fraud Analytics",
+    "country": "Brazil",
+    "work_model": "Hybrid",
+    "start_preference": "2026-02-15",
+    "reporting_line": "DS Manager, Fraud",
+    "target_levels": ["IC6"],
+    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "internal_first_strategy": "open",
+    "internal_days": 0,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["impact_delivery", "sql", "python", "fraud_detection", "ml"],
+    "preferred_skills": ["statistical_modeling", "mlops", "model_monitoring"],
+    "tools_top5": ["Databricks", "SQL", "Python", "Git", "MLflow"],
+    "day_in_the_life": [
+      "Develop fraud detection models",
+      "Monitor fraud metrics and model performance",
+      "Collaborate with security and product teams"
+    ],
+    "near_term_scope": {
+      "challenges": ["Reduce false positives", "Improve detection accuracy"],
+      "projects": ["New fraud model", "Real-time scoring"],
+      "kpis": ["False Positive Rate", "Detection Accuracy", "Model Latency"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.40,
+      "function_skills": 0.40,
+      "tools": 0.10,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-25",
+    "age_days": 16
+  },
+  {
+    "id": "role_005",
+    "title": "Data Scientist - MLOps",
+    "function": "DS",
+    "subfunction": "ML Engineering",
+    "country": "Brazil",
+    "work_model": "Remote",
+    "start_preference": "2026-01-20",
+    "reporting_line": "DS Manager, Engineering",
+    "target_levels": ["IC5"],
+    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 20,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "python", "mlops", "feature_store"],
+    "preferred_skills": ["kubernetes", "docker", "model_monitoring", "ml_serving"],
+    "tools_top5": ["Databricks", "SQL", "Python", "Airflow", "MLflow", "Kubernetes"],
+    "day_in_the_life": [
+      "Build and maintain MLOps infrastructure",
+      "Deploy and monitor ML models in production",
+      "Collaborate with data scientists and engineers"
+    ],
+    "near_term_scope": {
+      "challenges": ["Scale ML infrastructure", "Reduce deployment time"],
+      "projects": ["Feature store migration", "Model monitoring platform"],
+      "kpis": ["Deployment Time", "Model Uptime", "Inference Latency"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.30,
+      "function_skills": 0.50,
+      "tools": 0.15,
+      "background_fit": 0.05
+    },
+    "created_at": "2025-10-18",
+    "age_days": 23
+  },
+  {
+    "id": "role_006",
+    "title": "Senior Business Analyst - Credit",
+    "function": "BA",
+    "subfunction": "Credit Analytics",
+    "country": "Brazil",
+    "work_model": "Hybrid",
+    "start_preference": "2026-02-10",
+    "reporting_line": "BA Manager, Credit",
+    "target_levels": ["IC5"],
+    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 15,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "stakeholder_mgmt", "credit_domain", "impact_delivery"],
+    "preferred_skills": ["dbt", "experimentation", "business_analytics"],
+    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "day_in_the_life": [
+      "Analyze credit performance metrics",
+      "Create dashboards and reports for stakeholders",
+      "Support business decisions with data insights"
+    ],
+    "near_term_scope": {
+      "challenges": ["Improve reporting automation", "Enhance metric visibility"],
+      "projects": ["Credit dashboard refresh", "Metric standardization"],
+      "kpis": ["Report Accuracy", "Dashboard Usage", "Insight Delivery Time"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.40,
+      "function_skills": 0.35,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-22",
+    "age_days": 19
+  },
+  {
+    "id": "role_007",
+    "title": "Staff Data Scientist - Product Analytics",
+    "function": "DS",
+    "subfunction": "Product Analytics",
+    "country": "Colombia",
+    "work_model": "Remote",
+    "start_preference": "2026-02-20",
+    "reporting_line": "DS Manager, Product",
+    "target_levels": ["IC7"],
+    "level_flex_range": ["IC6", "IC7", "IC8"],
+    "internal_first_strategy": "open",
+    "internal_days": 0,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["impact_delivery", "stakeholder_mgmt", "sql", "python", "product_analytics"],
+    "preferred_skills": ["experimentation", "ab_testing", "statistical_modeling"],
+    "tools_top5": ["Databricks", "SQL", "Python", "Git", "QuickSight"],
+    "day_in_the_life": [
+      "Lead product analytics initiatives",
+      "Design and analyze A/B tests",
+      "Partner with product managers on feature launches"
+    ],
+    "near_term_scope": {
+      "challenges": ["Scale experimentation", "Improve product insights"],
+      "projects": ["New product metrics", "Experimentation framework"],
+      "kpis": ["Experiment Velocity", "Insight Quality", "Product Impact"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.35,
+      "function_skills": 0.45,
+      "tools": 0.10,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-10",
+    "age_days": 31
   }
 ]
-

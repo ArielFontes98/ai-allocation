@@ -33,6 +33,7 @@ interface AppState {
   // UI state
   currentScreen: 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals';
   selectedView: 'by-role' | 'by-candidate';
+  pendingRoleIntake?: Partial<Role>;
   
   // Actions
   setCandidates: (candidates: Candidate[]) => void;
@@ -49,6 +50,8 @@ interface AppState {
   setFilters: (filters: Partial<AppState['filters']>) => void;
   setCurrentScreen: (screen: AppState['currentScreen']) => void;
   setSelectedView: (view: AppState['selectedView']) => void;
+  setPendingRoleIntake: (role: Partial<Role>) => void;
+  clearPendingRoleIntake: () => void;
   selectCandidate: (candidateId: string, roleId: string) => boolean;
 }
 
@@ -118,6 +121,8 @@ export const useStore = create<AppState>()(
       
       setCurrentScreen: (screen) => set({ currentScreen: screen }),
       setSelectedView: (view) => set({ selectedView: view }),
+      setPendingRoleIntake: (role) => set({ pendingRoleIntake: role }),
+      clearPendingRoleIntake: () => set({ pendingRoleIntake: undefined }),
       
       selectCandidate: (candidateId, roleId) => {
         const state = get();

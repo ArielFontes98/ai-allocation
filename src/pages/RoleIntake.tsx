@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as React from 'react';
 import { useStore } from '../state/store';
 import { addToast } from '../components/Layout';
 import { Save, Plus, X } from 'lucide-react';
@@ -30,8 +31,15 @@ const PREFERRED_SKILLS = [
 
 export function RoleIntake() {
   const addRole = useStore((state) => state.addRole);
+  const pendingRoleIntake = useStore((state) => state.pendingRoleIntake);
+  const clearPendingRoleIntake = useStore((state) => state.clearPendingRoleIntake);
   
-  const [formData, setFormData] = useState<Partial<Role>>({
+  // Initialize form with pending data if available
+  const getInitialFormData = (): Partial<Role> => {
+    if (pendingRoleIntake) {
+      return pendingRoleIntake;
+    }
+    return {
     title: '',
     function: '',
     subfunction: '',
@@ -65,7 +73,17 @@ export function RoleIntake() {
     },
     created_at: new Date().toISOString().split('T')[0],
     age_days: 0,
-  });
+    };
+  };
+  
+  const [formData, setFormData] = useState<Partial<Role>>(getInitialFormData());
+
+  // Clear pending intake after using it
+  React.useEffect(() => {
+    if (pendingRoleIntake) {
+      clearPendingRoleIntake();
+    }
+  }, []);
 
   const handleSave = () => {
     if (!formData.title || !formData.function || !formData.subfunction) {

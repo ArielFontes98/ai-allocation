@@ -8,7 +8,11 @@ interface FiltersBarProps {
 }
 
 export function FiltersBar({ filters, onClearFilter, onClearAll }: FiltersBarProps) {
-  const activeFilters = Object.entries(filters).filter(([_, value]) => value !== undefined && value !== '');
+  const activeFilters = Object.entries(filters).filter(([_, value]) => {
+    if (value === undefined || value === '') return false;
+    if (typeof value === 'number' && value === 0) return false;
+    return true;
+  });
 
   if (activeFilters.length === 0) {
     return null;

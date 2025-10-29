@@ -104,6 +104,146 @@
     },
     "availability_date": "2026-02-20",
     "notes": "Internal candidate with payments domain experience. Growing in technical skills."
+  },
+  {
+    "id": "cand_303",
+    "name": "Pedro Alves",
+    "type": "internal",
+    "linkedin_url": "https://www.linkedin.com/in/pedroalves",
+    "country": "Brazil",
+    "time_zone": "UTC-03:00",
+    "languages": [
+      {"code": "en", "level": "C1"},
+      {"code": "pt", "level": "C2"}
+    ],
+    "experience_years_total": 5,
+    "experience_domains": ["Credit Risk", "Fraud Detection"],
+    "skills": ["Python", "SQL", "MLOps", "Statistical Modeling"],
+    "tools": ["Databricks", "SQL", "Python", "Airflow", "MLflow"],
+    "internal_history": {
+      "function": "DS",
+      "tenure_months": 30,
+      "last_bu": "Credit Risk"
+    },
+    "availability_date": "2026-01-20",
+    "notes": "Internal candidate with strong credit risk background. 5 years experience."
+  },
+  {
+    "id": "cand_404",
+    "name": "Sofia Martinez",
+    "type": "external",
+    "linkedin_url": "https://www.linkedin.com/in/sofiamartinez",
+    "country": "Mexico",
+    "time_zone": "UTC-06:00",
+    "languages": [
+      {"code": "en", "level": "C2"},
+      {"code": "es", "level": "C2"}
+    ],
+    "experience_years_total": 9,
+    "experience_domains": ["Payments", "Product Analytics", "Experimentation"],
+    "skills": ["Python", "SQL", "A/B Testing", "Statistical Modeling", "Product Analytics"],
+    "tools": ["Databricks", "SQL", "Python", "Git", "QuickSight", "Tableau"],
+    "availability_date": "2026-02-01",
+    "notes": "Senior analyst with payments and product analytics expertise. Strong experimentation skills."
+  },
+  {
+    "id": "cand_505",
+    "name": "Lucas Ferreira",
+    "type": "internal",
+    "linkedin_url": "https://www.linkedin.com/in/lucasferreira",
+    "country": "Brazil",
+    "time_zone": "UTC-03:00",
+    "languages": [
+      {"code": "en", "level": "C1"},
+      {"code": "pt", "level": "C2"}
+    ],
+    "experience_years_total": 7,
+    "experience_domains": ["Credit Risk", "MLOps"],
+    "skills": ["Python", "SQL", "MLOps", "Feature Store", "Model Monitoring", "dbt"],
+    "tools": ["Databricks", "SQL", "Python", "Airflow", "MLflow", "Kubernetes"],
+    "internal_history": {
+      "function": "DS",
+      "tenure_months": 36,
+      "last_bu": "Credit Risk"
+    },
+    "availability_date": "2026-01-10",
+    "notes": "Internal candidate with extensive MLOps experience. Strong credit risk domain knowledge."
+  },
+  {
+    "id": "cand_606",
+    "name": "Isabella Costa",
+    "type": "external",
+    "linkedin_url": "https://www.linkedin.com/in/isabellacosta",
+    "country": "Brazil",
+    "time_zone": "UTC-03:00",
+    "languages": [
+      {"code": "en", "level": "C1"},
+      {"code": "pt", "level": "C2"}
+    ],
+    "experience_years_total": 6,
+    "experience_domains": ["Payments", "Fraud Detection"],
+    "skills": ["Python", "SQL", "Statistical Modeling", "Fraud Detection", "ML"],
+    "tools": ["Databricks", "SQL", "Python", "Git", "MLflow"],
+    "availability_date": "2026-02-28",
+    "notes": "Data scientist specializing in fraud detection. Strong statistical and ML background."
+  },
+  {
+    "id": "cand_707",
+    "name": "Fernando Torres",
+    "type": "external",
+    "linkedin_url": "https://www.linkedin.com/in/fernandotorres",
+    "country": "Colombia",
+    "time_zone": "UTC-05:00",
+    "languages": [
+      {"code": "en", "level": "C1"},
+      {"code": "es", "level": "C2"}
+    ],
+    "experience_years_total": 8,
+    "experience_domains": ["Credit Risk", "Risk Analytics"],
+    "skills": ["Python", "R", "SQL", "Credit Modeling", "Risk Analytics"],
+    "tools": ["Databricks", "SQL", "R", "Python", "Git"],
+    "availability_date": "2026-01-25",
+    "notes": "Expert in credit risk modeling. Strong R and Python skills. 8 years experience."
+  },
+  {
+    "id": "cand_808",
+    "name": "Camila Rios",
+    "type": "internal",
+    "linkedin_url": "https://www.linkedin.com/in/camilarios",
+    "country": "Brazil",
+    "time_zone": "UTC-03:00",
+    "languages": [
+      {"code": "en", "level": "C2"},
+      {"code": "pt", "level": "C2"}
+    ],
+    "experience_years_total": 4,
+    "experience_domains": ["Payments", "Product Analytics"],
+    "skills": ["Python", "SQL", "Experimentation", "A/B Testing", "Product Analytics"],
+    "tools": ["Databricks", "SQL", "Python", "Git", "QuickSight"],
+    "internal_history": {
+      "function": "DS",
+      "tenure_months": 18,
+      "last_bu": "Payments"
+    },
+    "availability_date": "2026-02-10",
+    "notes": "Internal candidate from Payments. Strong in experimentation and product analytics."
+  },
+  {
+    "id": "cand_909",
+    "name": "Roberto Mendez",
+    "type": "external",
+    "linkedin_url": "https://www.linkedin.com/in/robertomendez",
+    "country": "Mexico",
+    "time_zone": "UTC-06:00",
+    "languages": [
+      {"code": "en", "level": "C2"},
+      {"code": "es", "level": "C2"}
+    ],
+    "experience_years_total": 10,
+    "experience_domains": ["Credit Risk", "Risk Analytics", "MLOps"],
+    "skills": ["Python", "SQL", "MLOps", "Feature Store", "Credit Modeling", "dbt"],
+    "tools": ["Databricks", "SQL", "Python", "Airflow", "MLflow", "Kubernetes", "Snowflake"],
+    "availability_date": "2026-01-05",
+    "notes": "Senior data scientist with extensive credit risk and MLOps experience. 10 years in the field."
   }
 ]
-
