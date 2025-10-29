@@ -76,7 +76,7 @@
     "age_days": 12,
     "manager": "Luis Moneda",
     "ta_responsible": "Katherine Larue",
-    "business_area": "DS"
+    "business_area": "Credit Modeling"
   },
   {
     "id": "role_002",
@@ -156,7 +156,7 @@
     "age_days": 21,
     "ta_responsible": "Isabela Aredes",
     "manager": "Flavio Akira",
-    "business_area": "DS"
+    "business_area": "Payments Analytics"
   },
   {
     "id": "role_003",
@@ -236,7 +236,7 @@
     "age_days": 26,
     "ta_responsible": "Mariana Favari",
     "manager": "Diandra Kubo",
-    "business_area": "DS"
+    "business_area": "Risk Analytics"
   },
   {
     "id": "role_004",
@@ -316,7 +316,7 @@
     "age_days": 16,
     "ta_responsible": "Thais Tung",
     "manager": "Luis Moneda",
-    "business_area": "DS"
+    "business_area": "Fraud Analytics"
   },
   {
     "id": "role_005",
@@ -397,7 +397,7 @@
     "age_days": 23,
     "ta_responsible": "Juan Vargas",
     "manager": "Flavio Akira",
-    "business_area": "DS"
+    "business_area": "ML Engineering"
   },
   {
     "id": "role_006",
@@ -476,7 +476,7 @@
     "age_days": 19,
     "manager": "Henrique Hermanny",
     "ta_responsible": "Viviane Santos",
-    "business_area": "BA"
+    "business_area": "Credit Analytics"
   },
   {
     "id": "role_007",
@@ -556,7 +556,7 @@
     "age_days": 31,
     "ta_responsible": "Gabriela Bruno",
     "manager": "Luis Moneda",
-    "business_area": "DS"
+    "business_area": "Product Analytics"
   },
   {
     "id": "role_008",
@@ -635,7 +635,7 @@
     "age_days": 13,
     "manager": "Mie Sato",
     "ta_responsible": "Natalia Saura",
-    "business_area": "BA"
+    "business_area": "Payments Analytics"
   },
   {
     "id": "role_009",
@@ -714,7 +714,7 @@
     "age_days": 15,
     "manager": "Beatriz Silvestre",
     "ta_responsible": "Katherine Larue",
-    "business_area": "BA"
+    "business_area": "Product Analytics"
   },
   {
     "id": "role_010",
@@ -794,7 +794,7 @@
     "age_days": 17,
     "manager": "Henrique Hermanny",
     "ta_responsible": "Isabela Aredes",
-    "business_area": "BA"
+    "business_area": "Risk Analytics"
   },
   {
     "id": "role_011",
@@ -873,7 +873,7 @@
     "age_days": 14,
     "manager": "Giovana Costa",
     "ta_responsible": "Mariana Favari",
-    "business_area": "BA"
+    "business_area": "Fraud Analytics"
   },
   {
     "id": "role_012",
@@ -952,7 +952,7 @@
     "age_days": 16,
     "manager": "Mie Sato",
     "ta_responsible": "Thais Tung",
-    "business_area": "BA"
+    "business_area": "Product Analytics"
   },
   {
     "id": "role_013",
@@ -1031,7 +1031,7 @@
     "age_days": 18,
     "manager": "Beatriz Silvestre",
     "ta_responsible": "Juan Vargas",
-    "business_area": "BA"
+    "business_area": "Risk Analytics"
   },
   {
     "id": "role_014",
@@ -1111,6 +1111,6 @@
     "age_days": 20,
     "manager": "Henrique Hermanny",
     "ta_responsible": "Viviane Santos",
-    "business_area": "BA"
+    "business_area": "Payments Analytics"
   }
 ]
