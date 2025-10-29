@@ -460,7 +460,8 @@
     },
     "created_at": "2025-10-22",
     "age_days": 19,
-    "manager": "Sarah Johnson"
+    "manager": "Sarah Johnson",
+    "ta_responsible": "Maria Silva"
   },
   {
     "id": "role_007",
@@ -614,7 +615,8 @@
     },
     "created_at": "2025-10-28",
     "age_days": 13,
-    "manager": "Carlos Rodriguez"
+    "manager": "Carlos Rodriguez",
+    "ta_responsible": "Ana Martinez"
   },
   {
     "id": "role_009",
@@ -691,7 +693,8 @@
     },
     "created_at": "2025-10-26",
     "age_days": 15,
-    "manager": "Laura Fernandez"
+    "manager": "Laura Fernandez",
+    "ta_responsible": "Juan Perez"
   },
   {
     "id": "role_010",
@@ -769,7 +772,8 @@
     },
     "created_at": "2025-10-24",
     "age_days": 17,
-    "manager": "Michael Thompson"
+    "manager": "Michael Thompson",
+    "ta_responsible": "Emily Davis"
   },
   {
     "id": "role_011",
