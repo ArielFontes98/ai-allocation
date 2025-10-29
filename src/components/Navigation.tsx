@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Briefcase, FileText, Users, CheckCircle2 } from 'lucide-react';
+import { Briefcase, FileText, Users, CheckCircle2, UserCog } from 'lucide-react';
 import { useStore } from '../state/store';
 import { useEffect } from 'react';
 
@@ -10,11 +10,12 @@ export function Navigation() {
   
   // Update current screen based on URL
   useEffect(() => {
-    const pathToScreen: Record<string, 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals'> = {
+    const pathToScreen: Record<string, 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals' | 'ta-allocation'> = {
       '/': 'confirm-roles',
       '/intake': 'role-intake',
       '/review': 'ta-review',
       '/approvals': 'manager-approvals',
+      '/allocation': 'ta-allocation',
     };
     const screen = pathToScreen[location.pathname];
     if (screen) {
@@ -27,6 +28,7 @@ export function Navigation() {
     { id: 'role-intake' as const, label: 'Role Intake', icon: FileText, path: '/intake' },
     { id: 'ta-review' as const, label: 'TA Review', icon: Users, path: '/review' },
     { id: 'manager-approvals' as const, label: 'Approvals', icon: Briefcase, path: '/approvals' },
+    { id: 'ta-allocation' as const, label: 'TA Allocation', icon: UserCog, path: '/allocation' },
   ];
 
   return (

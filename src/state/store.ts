@@ -31,7 +31,7 @@ interface AppState {
   };
   
   // UI state
-  currentScreen: 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals';
+  currentScreen: 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals' | 'ta-allocation';
   selectedView: 'by-role' | 'by-candidate';
   pendingRoleIntake?: Partial<Role>;
   

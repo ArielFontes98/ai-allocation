@@ -4,6 +4,7 @@ import { ConfirmRoles } from './pages/ConfirmRoles';
 import { RoleIntake } from './pages/RoleIntake';
 import { TAReviewSend } from './pages/TAReviewSend';
 import { ManagerApprovals } from './pages/ManagerApprovals';
+import { TAAllocation } from './pages/TAAllocation';
 import { useStore } from './state/store';
 import { useEffect } from 'react';
 import candidatesData from '../data/candidates.json';
@@ -47,6 +48,7 @@ function App() {
           <Route path="/intake" element={<RoleIntake />} />
           <Route path="/review" element={<TAReviewSend />} />
           <Route path="/approvals" element={<ManagerApprovals />} />
+          <Route path="/allocation" element={<TAAllocation />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
