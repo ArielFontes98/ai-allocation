@@ -228,7 +228,7 @@ export function RoleIntake() {
                 value={formData.subfunction || ''}
                 onChange={(e) => setFormData({ ...formData, subfunction: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="e.g., Credit Modeling"
+                placeholder="e.g., MLE or BA"
               />
             </div>
             <div>
