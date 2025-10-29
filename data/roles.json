@@ -74,7 +74,8 @@
     },
     "created_at": "2025-10-29",
     "age_days": 12,
-    "manager": "John Doe"
+    "manager": "John Doe",
+    "ta_responsible": "Maria Silva"
   },
   {
     "id": "role_002",
@@ -151,7 +152,8 @@
       "background_fit": 0.1
     },
     "created_at": "2025-10-20",
-    "age_days": 21
+    "age_days": 21,
+    "ta_responsible": "Ana Martinez"
   },
   {
     "id": "role_003",
@@ -228,7 +230,8 @@
       "background_fit": 0.05
     },
     "created_at": "2025-10-15",
-    "age_days": 26
+    "age_days": 26,
+    "ta_responsible": "Juan Perez"
   },
   {
     "id": "role_004",
@@ -305,7 +308,8 @@
       "background_fit": 0.1
     },
     "created_at": "2025-10-25",
-    "age_days": 16
+    "age_days": 16,
+    "ta_responsible": "Emily Davis"
   },
   {
     "id": "role_005",
@@ -383,7 +387,8 @@
       "background_fit": 0.05
     },
     "created_at": "2025-10-18",
-    "age_days": 23
+    "age_days": 23,
+    "ta_responsible": "David Garcia"
   },
   {
     "id": "role_006",
@@ -538,7 +543,8 @@
       "background_fit": 0.1
     },
     "created_at": "2025-10-10",
-    "age_days": 31
+    "age_days": 31,
+    "ta_responsible": "Sarah Johnson"
   },
   {
     "id": "role_008",
