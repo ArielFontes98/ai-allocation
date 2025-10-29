@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Edit2, X, Plus, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, Plus, ChevronDown, ChevronUp } from 'lucide-react';
 import type { MatchScore, Candidate, Role, PipelineEntry } from '../types';
 import { Badge } from './Badge';
 import { MatchExplain } from './MatchExplain';
@@ -14,7 +14,6 @@ interface HybridTableProps {
   roles: Role[];
   pipeline: PipelineEntry[];
   view: 'by-role' | 'by-candidate';
-  onEditMatch?: (match: MatchScore) => void;
   onRemoveMatch?: (match: MatchScore) => void;
   onAddMatch?: (itemId: string) => void;
 }
@@ -26,7 +25,6 @@ export function HybridTable({
   roles,
   pipeline,
   view,
-  onEditMatch,
   onRemoveMatch,
   onAddMatch,
 }: HybridTableProps) {
@@ -246,22 +244,14 @@ export function HybridTable({
                                         </span>
                                       </div>
                                       <div className="flex gap-2">
-                                        {onEditMatch && (
-                                          <button
-                                            onClick={() => onEditMatch(match)}
-                                            className="p-2.5 text-primary hover:text-white hover:bg-primary rounded-lg transition-colors border border-primary"
-                                            title="Edit match score"
-                                          >
-                                            <Edit2 className="w-4 h-4" />
-                                          </button>
-                                        )}
                                         {onRemoveMatch && (
                                           <button
                                             onClick={() => onRemoveMatch(match)}
-                                            className="p-2.5 text-red-600 hover:text-white hover:bg-red-600 rounded-lg transition-colors border border-red-600"
+                                            className="px-4 py-2 bg-red-50 text-red-700 rounded-lg font-semibold hover:bg-red-100 transition-colors border border-red-200 flex items-center gap-2"
                                             title="Remove from top 3"
                                           >
                                             <X className="w-4 h-4" />
+                                            Remove
                                           </button>
                                         )}
                                       </div>

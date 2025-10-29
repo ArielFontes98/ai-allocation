@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useStore } from '../state/store';
 import { HybridTable } from '../components/HybridTable';
-import { EditMatchModal } from '../components/EditMatchModal';
 import { CandidateSelectorModal } from '../components/CandidateSelectorModal';
 import { RoleSelectorModal } from '../components/RoleSelectorModal';
 import { FiltersBar } from '../components/FiltersBar';
@@ -24,7 +23,6 @@ export function TAReviewSend() {
   const setFilters = useStore((state) => state.setFilters);
 
   const [currentMatches, setCurrentMatches] = useState<MatchScore[]>([]);
-  const [editingMatch, setEditingMatch] = useState<MatchScore | null>(null);
   const [selectingForRole, setSelectingForRole] = useState<Role | null>(null);
   const [selectingForCandidate, setSelectingForCandidate] = useState<Candidate | null>(null);
 
@@ -96,20 +94,6 @@ export function TAReviewSend() {
     }
   }, [selectedView, roles, candidates, filters, pipeline]);
 
-  const handleEditMatch = (match: MatchScore) => {
-    setEditingMatch(match);
-  };
-
-  const handleSaveMatch = (updatedMatch: MatchScore) => {
-    setCurrentMatches((prev) =>
-      prev.map((m) =>
-        m.candidate_id === updatedMatch.candidate_id && m.role_id === updatedMatch.role_id
-          ? updatedMatch
-          : m
-      )
-    );
-    addToast('Match score updated successfully', 'success');
-  };
 
 
   const handleGenerateBatch = () => {
@@ -180,7 +164,7 @@ export function TAReviewSend() {
         <div className="flex gap-2 mb-6">
           <button
             onClick={() => setSelectedView('by-role')}
-            className={`px-4 py-2 rounded-xl font-medium transition-colors ${
+            className={`px-6 py-3 rounded-xl font-semibold transition-colors shadow-md ${
               selectedView === 'by-role'
                 ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -190,7 +174,7 @@ export function TAReviewSend() {
           </button>
           <button
             onClick={() => setSelectedView('by-candidate')}
-            className={`px-4 py-2 rounded-xl font-medium transition-colors ${
+            className={`px-6 py-3 rounded-xl font-semibold transition-colors shadow-md ${
               selectedView === 'by-candidate'
                 ? 'bg-primary text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -308,7 +292,6 @@ export function TAReviewSend() {
             roles={roles}
             pipeline={pipeline}
             view={selectedView}
-            onEditMatch={handleEditMatch}
             onRemoveMatch={(match) => {
               setCurrentMatches((prev) =>
                 prev.filter((m) => !(m.candidate_id === match.candidate_id && m.role_id === match.role_id))
@@ -331,14 +314,6 @@ export function TAReviewSend() {
           />
         )}
       </div>
-
-      {/* Edit Match Modal */}
-      <EditMatchModal
-        isOpen={editingMatch !== null}
-        match={editingMatch}
-        onClose={() => setEditingMatch(null)}
-        onSave={handleSaveMatch}
-      />
 
       {/* Candidate Selector Modal */}
       {selectingForRole && (

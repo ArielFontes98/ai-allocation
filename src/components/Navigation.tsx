@@ -53,14 +53,15 @@ export function Navigation() {
                   key={item.id}
                   to={item.path}
                   onClick={() => useStore.getState().setCurrentScreen(item.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-colors ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-all ${
                     isActive
-                      ? 'bg-primary text-white'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'bg-primary text-white shadow-lg'
+                      : 'text-gray-700 hover:bg-gray-100 font-medium'
                   }`}
+                  style={isActive ? { fontWeight: 700 } : {}}
                 >
                   <Icon className="w-4 h-4" />
-                  <span>{item.label}</span>
+                  <span style={{ fontWeight: isActive ? 700 : 500 }}>{item.label}</span>
                 </Link>
               );
             })}
