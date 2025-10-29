@@ -4,9 +4,11 @@ import { RoleCard } from '../components/RoleCard';
 import { CandidateCard } from '../components/CandidateCard';
 import { MatchExplain } from '../components/MatchExplain';
 import { ConflictModal } from '../components/ConflictModal';
+import { RejectModal } from '../components/RejectModal';
 import { addToast } from '../components/Layout';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { CheckCircle2, AlertCircle, XCircle } from 'lucide-react';
 import { addDays } from 'date-fns';
+import type { Rejection } from '../types';
 
 export function ManagerApprovals() {
   const roles = useStore((state) => state.roles);
@@ -16,12 +18,20 @@ export function ManagerApprovals() {
   const selectCandidate = useStore((state) => state.selectCandidate);
 
   const [selectedCandidates, setSelectedCandidates] = useState<Map<string, string>>(new Map());
+  const [rejections, setRejections] = useState<Rejection[]>([]);
   const [conflictModal, setConflictModal] = useState<{
     isOpen: boolean;
     candidateName: string;
     conflictingRole: string;
     candidateId: string;
     roleId: string;
+  } | null>(null);
+  const [rejectModal, setRejectModal] = useState<{
+    isOpen: boolean;
+    candidateId: string;
+    roleId: string;
+    candidateName: string;
+    roleTitle: string;
   } | null>(null);
 
   // Get roles in current batch
@@ -106,6 +116,34 @@ export function ManagerApprovals() {
       addToast('Candidate selected (conflict overridden in demo)', 'warning');
     }
     setConflictModal(null);
+  };
+
+  const handleRejectClick = (candidateId: string, roleId: string) => {
+    const candidate = candidates.find((c) => c.id === candidateId);
+    const role = roles.find((r) => r.id === roleId);
+    setRejectModal({
+      isOpen: true,
+      candidateId,
+      roleId,
+      candidateName: candidate?.name || 'Unknown',
+      roleTitle: role?.title || 'Unknown Role',
+    });
+  };
+
+  const handleReject = (reason: string) => {
+    if (!rejectModal) return;
+
+    const rejection: Rejection = {
+      candidate_id: rejectModal.candidateId,
+      role_id: rejectModal.roleId,
+      reason,
+      rejected_at: new Date().toISOString(),
+      rejected_by: 'manager', // In real app, get from auth
+    };
+
+    setRejections((prev) => [...prev, rejection]);
+    addToast('Candidate rejected. Feedback tracked for analytics.', 'success');
+    setRejectModal(null);
   };
 
   if (!currentBatch || batchRoles.length === 0) {
@@ -194,22 +232,37 @@ export function ManagerApprovals() {
                                   <span className="font-medium">Selected</span>
                                 </div>
                               )}
+                              {rejections.find(r => r.candidate_id === candidate.id && r.role_id === role.id) && (
+                                <div className="flex items-center gap-2 text-red-600">
+                                  <XCircle className="w-5 h-5" />
+                                  <span className="font-medium">Rejected</span>
+                                </div>
+                              )}
                               {candidateReservation && !isSelected && (
                                 <div className="text-sm text-gray-600">
                                   Reserved since {new Date(candidateReservation.reserved_at).toLocaleDateString()}
                                 </div>
                               )}
                             </div>
-                            <button
-                              onClick={() => handleSelectCandidate(candidate.id, role.id)}
-                              className={`px-6 py-2 rounded-xl font-medium transition-colors ${
-                                isSelected
-                                  ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                  : 'bg-primary text-white hover:bg-primary-dark'
-                              }`}
-                            >
-                              {isSelected ? 'Deselect' : 'Select Candidate'}
-                            </button>
+                            <div className="flex gap-2">
+                              <button
+                                onClick={() => handleRejectClick(candidate.id, role.id)}
+                                className="px-4 py-2 bg-red-50 text-red-700 rounded-xl font-medium hover:bg-red-100 transition-colors flex items-center gap-2"
+                              >
+                                <XCircle className="w-4 h-4" />
+                                Reject
+                              </button>
+                              <button
+                                onClick={() => handleSelectCandidate(candidate.id, role.id)}
+                                className={`px-6 py-2 rounded-xl font-medium transition-colors ${
+                                  isSelected
+                                    ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                    : 'bg-primary text-white hover:bg-primary-dark'
+                                }`}
+                              >
+                                {isSelected ? 'Deselect' : 'Select Candidate'}
+                              </button>
+                            </div>
                           </div>
                         </div>
                       );
@@ -229,6 +282,16 @@ export function ManagerApprovals() {
           conflictingRole={conflictModal.conflictingRole}
           onResolve={handleResolveConflict}
           onCancel={() => setConflictModal(null)}
+        />
+      )}
+
+      {rejectModal && (
+        <RejectModal
+          isOpen={rejectModal.isOpen}
+          candidateName={rejectModal.candidateName}
+          roleTitle={rejectModal.roleTitle}
+          onReject={handleReject}
+          onCancel={() => setRejectModal(null)}
         />
       )}
     </div>

@@ -1,12 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useStore } from '../state/store';
-import { RoleCard } from '../components/RoleCard';
-import { CandidateCard } from '../components/CandidateCard';
-import { MatchExplain } from '../components/MatchExplain';
+import { MatchTable } from '../components/MatchTable';
+import { EditMatchModal } from '../components/EditMatchModal';
 import { FiltersBar } from '../components/FiltersBar';
 import { addToast } from '../components/Layout';
 import { getTopMatchesForRole, getTopMatchesForCandidate } from '../lib/matching';
-import { ChevronDown, ChevronUp, Send, Filter, Download } from 'lucide-react';
+import { Send, Filter, Download } from 'lucide-react';
 import type { MatchScore } from '../types';
 
 export function TAReviewSend() {
@@ -22,9 +21,8 @@ export function TAReviewSend() {
   const filters = useStore((state) => state.filters);
   const setFilters = useStore((state) => state.setFilters);
 
-  const [expandedRoles, setExpandedRoles] = useState<Set<string>>(new Set());
-  const [expandedCandidates, setExpandedCandidates] = useState<Set<string>>(new Set());
   const [currentMatches, setCurrentMatches] = useState<MatchScore[]>([]);
+  const [editingMatch, setEditingMatch] = useState<MatchScore | null>(null);
 
   // Compute matches for all roles and candidates
   useEffect(() => {
@@ -94,32 +92,30 @@ export function TAReviewSend() {
     }
   }, [selectedView, roles, candidates, filters, pipeline]);
 
-  const toggleRoleExpand = (roleId: string) => {
-    const newSet = new Set(expandedRoles);
-    if (newSet.has(roleId)) {
-      newSet.delete(roleId);
+  const handleEditMatch = (match: MatchScore) => {
+    setEditingMatch(match);
+  };
+
+  const handleSaveMatch = (updatedMatch: MatchScore) => {
+    setCurrentMatches((prev) =>
+      prev.map((m) =>
+        m.candidate_id === updatedMatch.candidate_id && m.role_id === updatedMatch.role_id
+          ? updatedMatch
+          : m
+      )
+    );
+    addToast('Match score updated successfully', 'success');
+  };
+
+  // Get filtered matches based on current view
+  const getDisplayMatches = () => {
+    if (selectedView === 'by-role') {
+      const roleIds = new Set((filteredData as typeof roles).map(r => r.id));
+      return currentMatches.filter((m) => roleIds.has(m.role_id));
     } else {
-      newSet.add(roleId);
+      const candidateIds = new Set((filteredData as typeof candidates).map(c => c.id));
+      return currentMatches.filter((m) => candidateIds.has(m.candidate_id));
     }
-    setExpandedRoles(newSet);
-  };
-
-  const toggleCandidateExpand = (candidateId: string) => {
-    const newSet = new Set(expandedCandidates);
-    if (newSet.has(candidateId)) {
-      newSet.delete(candidateId);
-    } else {
-      newSet.add(candidateId);
-    }
-    setExpandedCandidates(newSet);
-  };
-
-  const getMatchesForRole = (roleId: string) => {
-    return currentMatches.filter((m) => m.role_id === roleId && m.passed_constraints).slice(0, 3);
-  };
-
-  const getMatchesForCandidate = (candidateId: string) => {
-    return currentMatches.filter((m) => m.candidate_id === candidateId && m.passed_constraints).slice(0, 3);
   };
 
   const handleGenerateBatch = () => {
@@ -302,109 +298,33 @@ export function TAReviewSend() {
         </div>
       </div>
 
-      {/* Content */}
-      {selectedView === 'by-role' ? (
-        <div className="space-y-4">
-          {(filteredData as typeof roles).map((role) => {
-            const matches = getMatchesForRole(role.id);
-            const isExpanded = expandedRoles.has(role.id);
+      {/* Content - Visual Table */}
+      <div className="mt-6">
+        {getDisplayMatches().length === 0 ? (
+          <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
+            <p className="text-gray-500">No matches found with current filters.</p>
+          </div>
+        ) : (
+          <MatchTable
+            matches={getDisplayMatches()}
+            candidates={candidates}
+            roles={roles}
+            pipeline={pipeline}
+            view={selectedView}
+            onEditMatch={handleEditMatch}
+            onSelectCandidate={() => {}}
+            onSelectRole={() => {}}
+          />
+        )}
+      </div>
 
-            return (
-              <div key={role.id} className="bg-white rounded-2xl border border-gray-200 shadow-sm">
-                <div className="p-6">
-                  <div className="flex items-center justify-between">
-                    <RoleCard role={role} showAge />
-                    <button
-                      onClick={() => toggleRoleExpand(role.id)}
-                      className="px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors"
-                    >
-                      {isExpanded ? (
-                        <ChevronUp className="w-5 h-5" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-                {isExpanded && (
-                  <div className="border-t border-gray-200 p-6 space-y-4">
-                    <h4 className="font-semibold text-gray-900">Top 3 Matches</h4>
-                    {matches.length === 0 ? (
-                      <p className="text-gray-500">No matches found</p>
-                    ) : (
-                      matches.map((match) => {
-                        const candidate = candidates.find((c) => c.id === match.candidate_id);
-                        if (!candidate) return null;
-                        const pipe = pipeline.find((p) => p.candidate_id === candidate.id);
-                        return (
-                          <div key={match.candidate_id} className="border border-gray-200 rounded-2xl p-4">
-                            <div className="grid grid-cols-2 gap-4 mb-4">
-                              <CandidateCard
-                                candidate={candidate}
-                                showTimeInPipe={pipe?.time_in_pipe_days}
-                              />
-                              <MatchExplain match={match} />
-                            </div>
-                          </div>
-                        );
-                      })
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="space-y-4">
-          {(filteredData as typeof candidates).map((candidate) => {
-            const matches = getMatchesForCandidate(candidate.id);
-            const isExpanded = expandedCandidates.has(candidate.id);
-            const pipe = pipeline.find((p) => p.candidate_id === candidate.id);
-
-            return (
-              <div key={candidate.id} className="bg-white rounded-2xl border border-gray-200 shadow-sm">
-                <div className="p-6">
-                  <div className="flex items-center justify-between">
-                    <CandidateCard candidate={candidate} showTimeInPipe={pipe?.time_in_pipe_days} />
-                    <button
-                      onClick={() => toggleCandidateExpand(candidate.id)}
-                      className="px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors"
-                    >
-                      {isExpanded ? (
-                        <ChevronUp className="w-5 h-5" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5" />
-                      )}
-                    </button>
-                  </div>
-                </div>
-                {isExpanded && (
-                  <div className="border-t border-gray-200 p-6 space-y-4">
-                    <h4 className="font-semibold text-gray-900">Top 3 Role Matches</h4>
-                    {matches.length === 0 ? (
-                      <p className="text-gray-500">No matches found</p>
-                    ) : (
-                      matches.map((match) => {
-                        const role = roles.find((r) => r.id === match.role_id);
-                        if (!role) return null;
-                        return (
-                          <div key={match.role_id} className="border border-gray-200 rounded-2xl p-4">
-                            <div className="grid grid-cols-2 gap-4 mb-4">
-                              <RoleCard role={role} />
-                              <MatchExplain match={match} />
-                            </div>
-                          </div>
-                        );
-                      })
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
+      {/* Edit Match Modal */}
+      <EditMatchModal
+        isOpen={editingMatch !== null}
+        match={editingMatch}
+        onClose={() => setEditingMatch(null)}
+        onSave={handleSaveMatch}
+      />
     </div>
   );
 }

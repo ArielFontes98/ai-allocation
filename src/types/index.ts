@@ -122,3 +122,11 @@ export interface Reservation {
   reserved_by: string;
 }
 
+export interface Rejection {
+  candidate_id: string;
+  role_id: string;
+  reason: string;
+  rejected_at: string;
+  rejected_by: string;
+}
+
