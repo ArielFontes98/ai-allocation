@@ -217,7 +217,7 @@ export function HybridTable({
                               {onAddMatch && (
                                 <button
                                   onClick={() => onAddMatch(itemId)}
-                                  className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors shadow-md"
+                                  className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark active:bg-white active:text-primary active:border active:border-primary transition-colors shadow-md"
                                 >
                                   <Plus className="w-5 h-5" />
                                   Add {view === 'by-role' ? 'Candidate' : 'Role'}

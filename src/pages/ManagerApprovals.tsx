@@ -297,7 +297,7 @@ export function ManagerApprovals() {
                                 className={`px-6 py-2 rounded-xl font-semibold transition-colors shadow-md ${
                                   isSelected
                                     ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                    : 'bg-primary text-white hover:bg-primary-dark'
+                                    : 'bg-primary text-white hover:bg-primary-dark active:bg-white active:text-primary active:border active:border-primary'
                                 }`}
                               >
                                 {isSelected ? 'Deselect' : 'Approve'}
