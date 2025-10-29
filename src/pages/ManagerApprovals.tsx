@@ -5,6 +5,7 @@ import { CandidateCard } from '../components/CandidateCard';
 import { MatchExplain } from '../components/MatchExplain';
 import { ConflictModal } from '../components/ConflictModal';
 import { RejectModal } from '../components/RejectModal';
+import { ApproveModal } from '../components/ApproveModal';
 import { addToast } from '../components/Layout';
 import { CheckCircle2, AlertCircle, XCircle } from 'lucide-react';
 import { addDays } from 'date-fns';
@@ -27,6 +28,13 @@ export function ManagerApprovals() {
     roleId: string;
   } | null>(null);
   const [rejectModal, setRejectModal] = useState<{
+    isOpen: boolean;
+    candidateId: string;
+    roleId: string;
+    candidateName: string;
+    roleTitle: string;
+  } | null>(null);
+  const [approveModal, setApproveModal] = useState<{
     isOpen: boolean;
     candidateId: string;
     roleId: string;
@@ -58,49 +66,6 @@ export function ManagerApprovals() {
     return start < minStartDate;
   };
 
-  const handleSelectCandidate = (candidateId: string, roleId: string) => {
-    // Check for existing reservations
-    const conflict = reservations.find(
-      (r) => r.candidate_id === candidateId && r.role_id !== roleId
-    );
-
-    if (conflict) {
-      const candidate = candidates.find((c) => c.id === candidateId);
-      const conflictingRole = roles.find((r) => r.id === conflict.role_id);
-      setConflictModal({
-        isOpen: true,
-        candidateName: candidate?.name || 'Unknown',
-        conflictingRole: conflictingRole?.title || 'Unknown Role',
-        candidateId,
-        roleId,
-      });
-      return;
-    }
-
-    // Check if candidate is already selected for this role
-    if (selectedCandidates.get(roleId) === candidateId) {
-      setSelectedCandidates((prev) => {
-        const newMap = new Map(prev);
-        newMap.delete(roleId);
-        return newMap;
-      });
-      addToast('Selection cleared', 'info');
-      return;
-    }
-
-    // Select candidate
-    const success = selectCandidate(candidateId, roleId);
-    if (success) {
-      setSelectedCandidates((prev) => {
-        const newMap = new Map(prev);
-        newMap.set(roleId, candidateId);
-        return newMap;
-      });
-      addToast('Candidate selected successfully', 'success');
-    } else {
-      addToast('Failed to select candidate', 'error');
-    }
-  };
 
   const handleResolveConflict = () => {
     if (!conflictModal) return;
@@ -144,6 +109,81 @@ export function ManagerApprovals() {
     setRejections((prev) => [...prev, rejection]);
     addToast('Candidate rejected. Feedback tracked for analytics.', 'success');
     setRejectModal(null);
+  };
+
+  const handleApproveClick = (candidateId: string, roleId: string) => {
+    const candidate = candidates.find((c) => c.id === candidateId);
+    const role = roles.find((r) => r.id === roleId);
+    setApproveModal({
+      isOpen: true,
+      candidateId,
+      roleId,
+      candidateName: candidate?.name || 'Unknown',
+      roleTitle: role?.title || 'Unknown Role',
+    });
+  };
+
+  const handleApprove = (comment: string, rating: number) => {
+    if (!approveModal) return;
+
+    // Check for conflicts first
+    const conflict = reservations.find(
+      (r) => r.candidate_id === approveModal.candidateId && r.role_id !== approveModal.roleId
+    );
+
+    if (conflict) {
+      const candidate = candidates.find((c) => c.id === approveModal.candidateId);
+      const conflictingRole = roles.find((r) => r.id === conflict.role_id);
+      setConflictModal({
+        isOpen: true,
+        candidateName: candidate?.name || 'Unknown',
+        conflictingRole: conflictingRole?.title || 'Unknown Role',
+        candidateId: approveModal.candidateId,
+        roleId: approveModal.roleId,
+      });
+      setApproveModal(null);
+      return;
+    }
+
+    // Check if candidate is already selected for this role (deselction)
+    if (selectedCandidates.get(approveModal.roleId) === approveModal.candidateId) {
+      setSelectedCandidates((prev) => {
+        const newMap = new Map(prev);
+        newMap.delete(approveModal.roleId);
+        return newMap;
+      });
+      addToast('Selection cleared', 'info');
+      setApproveModal(null);
+      return;
+    }
+
+    // Approve the candidate
+    const success = selectCandidate(approveModal.candidateId, approveModal.roleId);
+    if (success) {
+      setSelectedCandidates((prev) => {
+        const newMap = new Map(prev);
+        newMap.set(approveModal.roleId, approveModal.candidateId);
+        return newMap;
+      });
+      
+      // Store approval feedback for model improvement
+      const approvalFeedback = {
+        candidate_id: approveModal.candidateId,
+        role_id: approveModal.roleId,
+        rating,
+        comment,
+        approved_at: new Date().toISOString(),
+        approved_by: 'manager',
+      };
+      
+      // In production, this would be sent to backend
+      console.log('Approval feedback:', approvalFeedback);
+      
+      addToast(`Candidate approved with rating ${rating}/5. Feedback saved for model improvement.`, 'success');
+    } else {
+      addToast('Failed to approve candidate', 'error');
+    }
+    setApproveModal(null);
   };
 
   if (!currentBatch || batchRoles.length === 0) {
@@ -253,14 +293,14 @@ export function ManagerApprovals() {
                                 Reject
                               </button>
                               <button
-                                onClick={() => handleSelectCandidate(candidate.id, role.id)}
-                                className={`px-6 py-2 rounded-xl font-medium transition-colors ${
+                                onClick={() => handleApproveClick(candidate.id, role.id)}
+                                className={`px-6 py-2 rounded-xl font-semibold transition-colors shadow-md ${
                                   isSelected
                                     ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                     : 'bg-primary text-white hover:bg-primary-dark'
                                 }`}
                               >
-                                {isSelected ? 'Deselect' : 'Select Candidate'}
+                                {isSelected ? 'Deselect' : 'Approve'}
                               </button>
                             </div>
                           </div>
@@ -292,6 +332,16 @@ export function ManagerApprovals() {
           roleTitle={rejectModal.roleTitle}
           onReject={handleReject}
           onCancel={() => setRejectModal(null)}
+        />
+      )}
+
+      {approveModal && (
+        <ApproveModal
+          isOpen={approveModal.isOpen}
+          candidateName={approveModal.candidateName}
+          roleTitle={approveModal.roleTitle}
+          onApprove={handleApprove}
+          onCancel={() => setApproveModal(null)}
         />
       )}
     </div>

@@ -1,9 +1,26 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Briefcase, FileText, Users, CheckCircle2 } from 'lucide-react';
 import { useStore } from '../state/store';
+import { useEffect } from 'react';
 
 export function Navigation() {
+  const location = useLocation();
   const currentScreen = useStore((state) => state.currentScreen);
+  const setCurrentScreen = useStore((state) => state.setCurrentScreen);
+  
+  // Update current screen based on URL
+  useEffect(() => {
+    const pathToScreen: Record<string, 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals'> = {
+      '/': 'confirm-roles',
+      '/intake': 'role-intake',
+      '/review': 'ta-review',
+      '/approvals': 'manager-approvals',
+    };
+    const screen = pathToScreen[location.pathname];
+    if (screen) {
+      setCurrentScreen(screen);
+    }
+  }, [location.pathname, setCurrentScreen]);
   
   const navItems = [
     { id: 'confirm-roles' as const, label: 'Confirm Roles', icon: CheckCircle2, path: '/' },

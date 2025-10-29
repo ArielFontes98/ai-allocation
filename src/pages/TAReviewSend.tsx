@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useStore } from '../state/store';
+import { RoleMatchesTable } from '../components/RoleMatchesTable';
 import { MatchTable } from '../components/MatchTable';
 import { EditMatchModal } from '../components/EditMatchModal';
 import { FiltersBar } from '../components/FiltersBar';
@@ -298,23 +299,60 @@ export function TAReviewSend() {
         </div>
       </div>
 
-      {/* Content - Visual Table */}
-      <div className="mt-6">
-        {getDisplayMatches().length === 0 ? (
-          <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
-            <p className="text-gray-500">No matches found with current filters.</p>
-          </div>
+      {/* Content - Visual Tables */}
+      <div className="mt-6 space-y-4">
+        {selectedView === 'by-role' ? (
+          (filteredData as typeof roles).length === 0 ? (
+            <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
+              <p className="text-gray-500">No roles found with current filters.</p>
+            </div>
+          ) : (
+            (filteredData as typeof roles).map((role) => {
+              const roleMatches = currentMatches
+                .filter((m) => m.role_id === role.id && m.passed_constraints)
+                .sort((a, b) => b.total_score - a.total_score)
+                .slice(0, 3);
+
+              return (
+                <RoleMatchesTable
+                  key={role.id}
+                  role={role}
+                  matches={roleMatches}
+                  candidates={candidates}
+                  pipeline={pipeline}
+                  onEditMatch={handleEditMatch}
+                  onRemoveMatch={(matchId) => {
+                    const [candidateId, roleId] = matchId.split('-');
+                    setCurrentMatches((prev) =>
+                      prev.filter((m) => !(m.candidate_id === candidateId && m.role_id === roleId))
+                    );
+                    addToast('Candidate removed from top 3', 'info');
+                  }}
+                  onAddCandidate={() => {
+                    // Show available candidates modal (simplified for now)
+                    addToast('Add candidate feature - to be implemented with candidate selector', 'info');
+                  }}
+                />
+              );
+            })
+          )
         ) : (
-          <MatchTable
-            matches={getDisplayMatches()}
-            candidates={candidates}
-            roles={roles}
-            pipeline={pipeline}
-            view={selectedView}
-            onEditMatch={handleEditMatch}
-            onSelectCandidate={() => {}}
-            onSelectRole={() => {}}
-          />
+          getDisplayMatches().length === 0 ? (
+            <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
+              <p className="text-gray-500">No matches found with current filters.</p>
+            </div>
+          ) : (
+            <MatchTable
+              matches={getDisplayMatches()}
+              candidates={candidates}
+              roles={roles}
+              pipeline={pipeline}
+              view={selectedView}
+              onEditMatch={handleEditMatch}
+              onSelectCandidate={() => {}}
+              onSelectRole={() => {}}
+            />
+          )
         )}
       </div>
 

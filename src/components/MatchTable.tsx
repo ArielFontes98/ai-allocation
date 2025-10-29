@@ -131,9 +131,11 @@ export function MatchTable({
                   )}
                 </div>
               </th>
-              <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                Type
-              </th>
+              {view === 'by-candidate' && (
+                <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                  Type
+                </th>
+              )}
               <th className="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                 Actions
               </th>
@@ -199,11 +201,13 @@ export function MatchTable({
                       {timeInPipe}d
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <Badge variant={candidate.type === 'internal' ? 'success' : 'default'} size="sm">
-                      {candidate.type}
-                    </Badge>
-                  </td>
+                  {view === 'by-candidate' && (
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <Badge variant={candidate.type === 'internal' ? 'success' : 'default'} size="sm">
+                        {candidate.type}
+                      </Badge>
+                    </td>
+                  )}
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center gap-2">
                       <button
