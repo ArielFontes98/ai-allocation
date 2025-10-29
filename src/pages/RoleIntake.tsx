@@ -120,6 +120,8 @@ export function RoleIntake() {
       },
       created_at: formData.created_at || new Date().toISOString().split('T')[0],
       age_days: 0,
+      manager: formData.manager,
+      ta_responsible: formData.ta_responsible,
     };
 
     addRole(newRole);
@@ -172,6 +174,20 @@ export function RoleIntake() {
           Complete the lean hiring intake form to define role requirements.
         </p>
       </div>
+
+      {!pendingRoleIntake && (
+        <div className="mb-6 bg-yellow-50 border border-yellow-200 rounded-2xl p-4">
+          <div className="flex items-start gap-3">
+            <span className="text-2xl">⚠️</span>
+            <div>
+              <h3 className="font-semibold text-yellow-900 mb-1">New Position Alert</h3>
+              <p className="text-sm text-yellow-800">
+                This is a new position not requested in the hiring plan. All new positions must be approved by the M-team before proceeding.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="space-y-6">
         {/* Basic Info */}
@@ -265,6 +281,18 @@ export function RoleIntake() {
                 onChange={(e) => setFormData({ ...formData, reporting_line: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="e.g., DS Manager, Credit"
+              />
+            </div>
+            <div className="col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Manager
+              </label>
+              <input
+                type="text"
+                value={formData.manager || ''}
+                onChange={(e) => setFormData({ ...formData, manager: e.target.value })}
+                className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+                placeholder="e.g., John Smith"
               />
             </div>
           </div>

@@ -292,5 +292,307 @@
     },
     "created_at": "2025-10-10",
     "age_days": 31
+  },
+  {
+    "id": "role_008",
+    "title": "Senior Business Analyst - Payments",
+    "function": "BA",
+    "subfunction": "Payments Analytics",
+    "country": "Mexico",
+    "work_model": "Remote",
+    "start_preference": "2026-02-05",
+    "reporting_line": "BA Manager, Payments",
+    "target_levels": ["IC5"],
+    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 20,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_hημαves": ["sql", "stakeholder_mgmt", "payments_domain", "impact_delivery"],
+    "preferred_skills": ["dbt", "experimentation", "business_analytics"],
+    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "day_in_the_life": [
+      "Analyze payment metrics and trends",
+      "Build dashboards for payment operations",
+      "Support product and business decisions with data"
+    ],
+    "near_term_scope": {
+      "challenges": ["Improve payment analytics", "Enhance reporting"],
+      "projects": ["Payment dashboard", "Metric automation"],
+      "kpis": ["Dashboard Usage", "Report Accuracy", "Insight Delivery"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.35,
+      "function_skills": 0.40,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-28",
+    "age_days": 13
+  },
+  {
+    "id": "role_009",
+    "title": "Business Analyst - Product Analytics",
+    "function": "BA",
+    "subfunction": "Product Analytics",
+    "country": "Brazil",
+    "work_model": "Hybrid",
+    "start_preference": "2026-02-25",
+    "reporting_line": "BA Manager, Product",
+    "target_levels": ["IC4"],
+    "level_flex_range": ["IC3", "IC4", "IC5"],
+    "internal_first_strategy": "open",
+    "internal_days": 0,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "stakeholder_mgmt", "product_analytics", "impact_delivery"],
+    "preferred_skills": ["ab_testing", "experimentation", "business_analytics"],
+    "tools_top5": ["SQL", "Python", "QuickSight", "Git", "dbt"],
+    "day_in_the_life": [
+      "Support product teams with data analysis",
+      "Create product performance dashboards",
+      "Analyze user behavior and feature adoption"
+    ],
+    "near_term_scope": {
+      "challenges": ["Improve product insights", "Automate reporting"],
+      "projects": ["Product metrics dashboard", "User behavior analysis"],
+      "kpis": ["Dashboard Usage", "Insight Quality", "Report Automation"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.40,
+      "function_skills": 0.35,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-26",
+    "age_days": 15
+  },
+.aspell/words  {
+    "id": "role_010",
+    "title": "Staff Business Analyst - Credit Risk",
+    "function": "BA",
+    "subfunction": "Risk Analytics",
+    "country": "Colombia",
+    "work_model": "Remote",
+    "start_preference": "2026-03-01",
+    "reporting_line": "BA Manager, Risk",
+    "target_levels": ["IC6"],
+    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 25,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "stakeholder_mgmt", "credit_domain", "risk_analytics", "impact_delivery"],
+    "preferred_skills": ["dbt", "experimentation", "statistical_modeling"],
+    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "day_in_the_life": [
+      "Lead credit risk analytics initiatives",
+      "Build comprehensive risk dashboards",
+      "Partner with risk and credit teams on strategic decisions"
+    ],
+    "near_term_scope": {
+      "challenges": ["Improve risk visibility", "Scale analytics"],
+      "projects": ["Risk dashboard overhaul", "Analytics automation"],
+      "kpis": ["Dashboard Usage", "Decision Impact", "Automation Rate"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.35,
+      "function_skills": 0.40,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-24",
+    "age_days": 17
+  },
+  {
+    "id": "role_011",
+    "title": "Business Analyst - Fraud Analytics",
+    "function": "BA",
+    "subfunction": "Fraud Analytics",
+    "country": "Brazil",
+    "work_model": "Hybrid",
+    "start_preference": "2026-02-15",
+    "reporting_line": "BA Manager, Fraud",
+    "target_levels": ["IC5"],
+    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 15,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "stakeholder_mgmt", "fraud_detection", "impact_delivery"],
+    "preferred_skills": ["dbt", "experimentation", "statistical_modeling"],
+    "tools_top5": ["SQL", "Python", "QuickSight", "Git", "dbt"],
+    "day_in_the_life": [
+      "Analyze fraud patterns and trends",
+      "Build fraud monitoring dashboards",
+      "Support fraud prevention initiatives with data insights"
+    ],
+    "near_term_scope": {
+      "challenges": ["Reduce false positives", "Improve fraud detection"],
+      "projects": ["Fraud dashboard", "Pattern analysis"],
+      "kpis": ["False Positive Rate", "Dashboard Usage", "Detection Time"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.35,
+      "function_skills": 0.40,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-27",
+    "age_days": 14,
+    "manager": "Sarah Johnson",
+    "ta_responsible": "Maria Silva"
+  },
+  {
+    "id": "role_012",
+    "title": "Senior Business Analyst - Product Analytics",
+    "function": "BA",
+    "subfunction": "Product Analytics",
+    "country": "Mexico",
+    "work_model": "Remote",
+    "start_preference": "2026-03-01",
+    "reporting_line": "BA Manager, Product",
+    "target_levels": ["IC5"],
+    "level_flex_range": ["IC4", "IC5", "IC6"],
+    "internal_first_strategy": "open",
+    "internal_days": 0,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "stakeholder_mgmt", "product_analytics", "impact_delivery"],
+    "preferred_skills": ["ab_testing", "experimentation", "business_analytics"],
+    "tools_top5": ["SQL", "Python", "QuickSight", "Git", "dbt"],
+    "day_in_the_life": [
+      "Lead product analytics for payment features",
+      "Analyze user behavior and feature adoption",
+      "Partner with product teams on feature launches"
+    ],
+    "near_term_scope": {
+      "challenges": ["Scale analytics", "Improve product insights"],
+      "projects": ["Product dashboard", "User behavior analysis"],
+      "kpis": ["Dashboard Usage", "Insight Quality", "Feature Adoption"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.35,
+      "function_skills": 0.40,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-25",
+    "age_days": 16,
+    "manager": "Carlos Rodriguez",
+    "ta_responsible": "Ana Martinez"
+  },
+  {
+    "id": "role_013",
+    "title": "Business Analyst - Risk Analytics",
+    "function": "BA",
+    "subfunction": "Risk Analytics",
+    "country": "Colombia",
+    "work_model": "Hybrid",
+    "start_preference": "2026-02-20",
+    "reporting_line": "BA Manager, Risk",
+    "target_levels": ["IC4"],
+    "level_flex_range": ["IC3", "IC4", "IC5"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 20,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "stakeholder_mgmt", "risk_analytics", "impact_delivery"],
+    "preferred_skills": ["dbt", "statistical_modeling", "business_analytics"],
+    "tools_top5": ["SQL", "Python", "QuickSight", "dbt", "Git"],
+    "day_in_the_life": [
+      "Support risk analytics initiatives",
+      "Build risk monitoring dashboards",
+      "Analyze risk metrics and trends"
+    ],
+    "near_term_scope": {
+      "challenges": ["Improve risk visibility", "Automate reporting"],
+      "projects": ["Risk dashboard", "Metric automation"],
+      "kpis": ["Dashboard Usage", "Report Accuracy", "Automation Rate"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.40,
+      "function_skills": 0.35,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-23",
+    "age_days": 18,
+    "manager": "Laura Fernandez",
+    "ta_responsible": "Juan Perez"
+  },
+  {
+    "id": "role_014",
+    "title": "Staff Business Analyst - Payments",
+    "function": "BA",
+    "subfunction": "Payments Analytics",
+    "country": "United States",
+    "work_model": "Remote",
+    "start_preference": "2026-03-10",
+    "reporting_line": "BA Manager, Payments",
+    "target_levels": ["IC6"],
+    "level_flex_range": ["IC5", "IC6", "IC7"],
+    "internal_first_strategy": "internal_first",
+    "internal_days": 25,
+    "confidential": false,
+    "languages_required": [
+      {"code": "en", "min": "C1"}
+    ],
+    "leveling_must_haves": ["sql", "stakeholder_mgmt", "payments_domain", "risk_analytics", "impact_delivery"],
+    "preferred_skills": ["dbt", "experimentation", "statistical_modeling"],
+    "tools_top5": ["SQL", "Python", "dbt", "QuickSight", "Git"],
+    "day_in_the_life": [
+      "Lead payments analytics strategy",
+      "Build comprehensive payments dashboards",
+      "Partner with product and engineering on payment initiatives"
+    ],
+    "near_term_scope": {
+      "challenges": ["Scale analytics", "Improve payment insights"],
+      "projects": ["Payments dashboard overhaul", "Analytics automation"],
+      "kpis": ["Dashboard Usage", "Decision Impact", "Automation Rate"]
+    },
+    "hard_constraints": {
+      "language_fluent": true
+    },
+    "weights": {
+      "leveling": 0.35,
+      "function_skills": 0.40,
+      "tools": 0.15,
+      "background_fit": 0.10
+    },
+    "created_at": "2025-10-21",
+    "age_days": 20,
+    "manager": "Michael Thompson",
+    "ta_responsible": "Emily Davis"
   }
 ]

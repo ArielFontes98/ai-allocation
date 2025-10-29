@@ -72,6 +72,8 @@ export interface Role {
   };
   created_at: string;
   age_days: number;
+  manager?: string;
+  ta_responsible?: string;
 }
 
 export interface Interview {

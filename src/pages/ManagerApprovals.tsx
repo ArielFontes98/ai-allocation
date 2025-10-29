@@ -20,6 +20,7 @@ export function ManagerApprovals() {
 
   const [selectedCandidates, setSelectedCandidates] = useState<Map<string, string>>(new Map());
   const [rejections, setRejections] = useState<Rejection[]>([]);
+  const [positionFilter, setPositionFilter] = useState<string>('');
   const [conflictModal, setConflictModal] = useState<{
     isOpen: boolean;
     candidateName: string;
@@ -204,6 +205,11 @@ export function ManagerApprovals() {
     );
   }
 
+  const filteredBatchRoles = batchRoles.filter((role) => {
+    if (!positionFilter) return true;
+    return role.title.toLowerCase().includes(positionFilter.toLowerCase());
+  });
+
   return (
     <div>
       <div className="mb-8">
@@ -211,10 +217,25 @@ export function ManagerApprovals() {
         <p className="text-gray-600">
           Review recommended candidates and select the best fit for each role.
         </p>
+        <p className="text-sm text-gray-500 mt-2">
+          Note: Only positions from the logged-in manager are shown.
+        </p>
+      </div>
+
+      {/* Position Filter */}
+      <div className="bg-white rounded-2xl p-4 border border-gray-200 mb-6">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Filter by Position</label>
+        <input
+          type="text"
+          value={positionFilter}
+          onChange={(e) => setPositionFilter(e.target.value)}
+          placeholder="Search by position title..."
+          className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+        />
       </div>
 
       <div className="space-y-6">
-        {batchRoles.map((role) => {
+        {filteredBatchRoles.map((role) => {
           const matches = getMatchesForRole(role.id);
           const selectedCandidateId = selectedCandidates.get(role.id);
           const bufferViolation = checkBufferViolation(role.start_preference);
@@ -264,6 +285,19 @@ export function ManagerApprovals() {
                             <MatchExplain match={match} />
                           </div>
 
+                          <div className="mb-4">
+                            <a
+                              href={`#scorecard-${candidate.id}`}
+                              className="text-sm text-primary hover:text-primary-dark hover:underline font-medium"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                addToast('Scorecard functionality would open here in production', 'info');
+                              }}
+                            >
+                              Click here for additional information
+                            </a>
+                          </div>
+
                           <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200">
                             <div className="flex items-center gap-2">
                               {isSelected && (
@@ -297,7 +331,7 @@ export function ManagerApprovals() {
                                 className={`px-6 py-2 rounded-xl font-semibold transition-colors shadow-md ${
                                   isSelected
                                     ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                                    : 'bg-white text-primary border-2 border-primary hover:bg-purple-50 hover:text-primary'
+                                    : 'bg-white text-gray-900 border-2 border-gray-900 hover:bg-purple-100 hover:border-primary active:bg-white active:text-gray-900'
                                 }`}
                               >
                                 {isSelected ? 'Deselect' : 'Approve'}

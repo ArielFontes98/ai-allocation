@@ -139,6 +139,64 @@ export function TAReviewSend() {
     addToast('CSV exported successfully', 'success');
   };
 
+  const [taResponsibleFilter, setTaResponsibleFilter] = useState<string>('');
+
+  const filteredDataWithTA = useMemo(() => {
+    if (selectedView === 'by-role') {
+      let filtered: typeof roles = [...roles];
+
+      // Apply TA Responsible filter
+      if (taResponsibleFilter) {
+        filtered = filtered.filter((role) => 
+          role.ta_responsible?.toLowerCase().includes(taResponsibleFilter.toLowerCase())
+        );
+      }
+
+      // Apply existing filters
+      if (filters.country) {
+        filtered = filtered.filter((item) => item.country === filters.country);
+      }
+      if (filters.function) {
+        filtered = filtered.filter((item) => item.function === filters.function);
+      }
+      if (filters.level) {
+        filtered = filtered.filter((item) => item.target_levels.includes(filters.level as string));
+      }
+      if (filters.language) {
+        filtered = filtered.filter((item) => 
+          item.languages_required.some((l) => l.code === filters.language)
+        );
+      }
+      if (filters.staleInPipe) {
+        filtered = filtered.filter((item) => item.age_days >= filters.staleInPipe!);
+      }
+      if (filters.oldRole) {
+        filtered = filtered.filter((item) => item.age_days >= filters.oldRole!);
+      }
+
+      return filtered;
+    } else {
+      let filtered: typeof candidates = [...candidates];
+
+      if (filters.country) {
+        filtered = filtered.filter((item) => item.country === filters.country);
+      }
+      if (filters.language) {
+        filtered = filtered.filter((item) => 
+          item.languages.some((l) => l.code === filters.language)
+        );
+      }
+      if (filters.staleInPipe) {
+        filtered = filtered.filter((item) => {
+          const pipe = pipeline.find((p) => p.candidate_id === item.id);
+          return pipe && pipe.time_in_pipe_days >= filters.staleInPipe!;
+        });
+      }
+
+      return filtered;
+    }
+  }, [selectedView, roles, candidates, filters, pipeline, taResponsibleFilter]);
+
   return (
     <div>
       <div className="mb-8">
@@ -147,6 +205,9 @@ export function TAReviewSend() {
             <h2 className="text-3xl font-bold text-gray-900 mb-2">TA Review & Send</h2>
             <p className="text-gray-600">
               Review AI-generated matches and send recommendations to managers.
+            </p>
+            <p className="text-sm text-gray-500 mt-2">
+              Note: This tab is used exclusively by the TA team.
             </p>
           </div>
           <div className="flex gap-3">
@@ -243,6 +304,18 @@ export function TAReviewSend() {
               </select>
             </div>
           </div>
+          {selectedView === 'by-role' && (
+            <div className="mt-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">TA Responsible</label>
+              <input
+                type="text"
+                value={taResponsibleFilter}
+                onChange={(e) => setTaResponsibleFilter(e.target.value)}
+                placeholder="Filter by TA responsible..."
+                className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+            </div>
+          )}
           <FiltersBar
             filters={filters}
             onClearFilter={(key) => setFilters({ [key]: undefined })}
@@ -278,7 +351,7 @@ export function TAReviewSend() {
 
       {/* Content - Hybrid Table */}
       <div className="mt-6">
-        {(filteredData as Role[] | Candidate[]).length === 0 ? (
+        {(filteredDataWithTA as Role[] | Candidate[]).length === 0 ? (
           <div className="bg-white rounded-2xl p-12 text-center border border-gray-200">
             <p className="text-gray-500">
               No {selectedView === 'by-role' ? 'roles' : 'candidates'} found with current filters.
@@ -286,7 +359,7 @@ export function TAReviewSend() {
           </div>
         ) : (
           <HybridTable
-            items={filteredData as Role[] | Candidate[]}
+            items={filteredDataWithTA as Role[] | Candidate[]}
             matches={currentMatches.filter((m) => m.passed_constraints)}
             candidates={candidates}
             roles={roles}
