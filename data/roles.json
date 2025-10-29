@@ -3,7 +3,7 @@
     "id": "role_001",
     "title": "Senior Data Scientist - Credit",
     "function": "DS",
-    "subfunction": "Credit Modeling",
+    "subfunction": "Credit Area",
     "country": "Brazil",
     "work_model": "Hybrid",
     "start_preference": "2026-01-15",
@@ -74,14 +74,14 @@
     },
     "created_at": "2025-10-29",
     "age_days": 12,
-    "manager": "John Doe",
-    "ta_responsible": "Maria Silva"
+    "manager": "Luis Moneda",
+    "ta_responsible": "Katherine Larue"
   },
   {
     "id": "role_002",
     "title": "Staff Data Scientist - Payments",
     "function": "DS",
-    "subfunction": "Payments Analytics",
+    "subfunction": "Payments Area",
     "country": "Mexico",
     "work_model": "Remote",
     "start_preference": "2026-02-01",
@@ -153,7 +153,8 @@
     },
     "created_at": "2025-10-20",
     "age_days": 21,
-    "ta_responsible": "Ana Martinez"
+    "ta_responsible": "Isabela Aredes",
+    "manager": "Flavio Akira"
   },
   {
     "id": "role_003",
@@ -231,13 +232,14 @@
     },
     "created_at": "2025-10-15",
     "age_days": 26,
-    "ta_responsible": "Juan Perez"
+    "ta_responsible": "Mariana Favari",
+    "manager": "Diandra Kubo"
   },
   {
     "id": "role_004",
     "title": "Senior Data Scientist - Fraud Detection",
     "function": "DS",
-    "subfunction": "Fraud Analytics",
+    "subfunction": "Fraud Area",
     "country": "Brazil",
     "work_model": "Hybrid",
     "start_preference": "2026-02-15",
@@ -309,7 +311,8 @@
     },
     "created_at": "2025-10-25",
     "age_days": 16,
-    "ta_responsible": "Emily Davis"
+    "ta_responsible": "Thais Tung",
+    "manager": "Luis Moneda"
   },
   {
     "id": "role_005",
@@ -388,13 +391,14 @@
     },
     "created_at": "2025-10-18",
     "age_days": 23,
-    "ta_responsible": "David Garcia"
+    "ta_responsible": "Juan Vargas",
+    "manager": "Flavio Akira"
   },
   {
     "id": "role_006",
     "title": "Senior Business Analyst - Credit",
     "function": "BA",
-    "subfunction": "Credit Analytics",
+    "subfunction": "BA",
     "country": "Brazil",
     "work_model": "Hybrid",
     "start_preference": "2026-02-10",
@@ -465,14 +469,14 @@
     },
     "created_at": "2025-10-22",
     "age_days": 19,
-    "manager": "Sarah Johnson",
-    "ta_responsible": "Maria Silva"
+    "manager": "Henrique Hermanny",
+    "ta_responsible": "Viviane Santos"
   },
   {
     "id": "role_007",
     "title": "Staff Data Scientist - Product Analytics",
     "function": "DS",
-    "subfunction": "Product Analytics",
+    "subfunction": "Product Area",
     "country": "Colombia",
     "work_model": "Remote",
     "start_preference": "2026-02-20",
@@ -544,13 +548,14 @@
     },
     "created_at": "2025-10-10",
     "age_days": 31,
-    "ta_responsible": "Sarah Johnson"
+    "ta_responsible": "Gabriela Bruno",
+    "manager": "Luis Moneda"
   },
   {
     "id": "role_008",
     "title": "Senior Business Analyst - Payments",
     "function": "BA",
-    "subfunction": "Payments Analytics",
+    "subfunction": "BA",
     "country": "Mexico",
     "work_model": "Remote",
     "start_preference": "2026-02-05",
@@ -621,14 +626,14 @@
     },
     "created_at": "2025-10-28",
     "age_days": 13,
-    "manager": "Carlos Rodriguez",
-    "ta_responsible": "Ana Martinez"
+    "manager": "Mie Sato",
+    "ta_responsible": "Natalia Saura"
   },
   {
     "id": "role_009",
     "title": "Business Analyst - Product Analytics",
     "function": "BA",
-    "subfunction": "Product Analytics",
+    "subfunction": "BA",
     "country": "Brazil",
     "work_model": "Hybrid",
     "start_preference": "2026-02-25",
@@ -699,14 +704,14 @@
     },
     "created_at": "2025-10-26",
     "age_days": 15,
-    "manager": "Laura Fernandez",
-    "ta_responsible": "Juan Perez"
+    "manager": "Beatriz Silvestre",
+    "ta_responsible": "Katherine Larue"
   },
   {
     "id": "role_010",
     "title": "Staff Business Analyst - Credit Risk",
     "function": "BA",
-    "subfunction": "Risk Analytics",
+    "subfunction": "BA",
     "country": "Colombia",
     "work_model": "Remote",
     "start_preference": "2026-03-01",
@@ -778,14 +783,14 @@
     },
     "created_at": "2025-10-24",
     "age_days": 17,
-    "manager": "Michael Thompson",
-    "ta_responsible": "Emily Davis"
+    "manager": "Henrique Hermanny",
+    "ta_responsible": "Isabela Aredes"
   },
   {
     "id": "role_011",
     "title": "Business Analyst - Fraud Analytics",
     "function": "BA",
-    "subfunction": "Fraud Analytics",
+    "subfunction": "BA",
     "country": "Brazil",
     "work_model": "Hybrid",
     "start_preference": "2026-02-15",
@@ -856,14 +861,14 @@
     },
     "created_at": "2025-10-27",
     "age_days": 14,
-    "manager": "Sarah Johnson",
-    "ta_responsible": "Maria Silva"
+    "manager": "Giovana Costa",
+    "ta_responsible": "Mariana Favari"
   },
   {
     "id": "role_012",
     "title": "Senior Business Analyst - Product Analytics",
     "function": "BA",
-    "subfunction": "Product Analytics",
+    "subfunction": "BA",
     "country": "Mexico",
     "work_model": "Remote",
     "start_preference": "2026-03-01",
@@ -934,14 +939,14 @@
     },
     "created_at": "2025-10-25",
     "age_days": 16,
-    "manager": "Carlos Rodriguez",
-    "ta_responsible": "Ana Martinez"
+    "manager": "Mie Sato",
+    "ta_responsible": "Thais Tung"
   },
   {
     "id": "role_013",
     "title": "Business Analyst - Risk Analytics",
     "function": "BA",
-    "subfunction": "Risk Analytics",
+    "subfunction": "BA",
     "country": "Colombia",
     "work_model": "Hybrid",
     "start_preference": "2026-02-20",
@@ -1012,14 +1017,14 @@
     },
     "created_at": "2025-10-23",
     "age_days": 18,
-    "manager": "Laura Fernandez",
-    "ta_responsible": "Juan Perez"
+    "manager": "Beatriz Silvestre",
+    "ta_responsible": "Juan Vargas"
   },
   {
     "id": "role_014",
     "title": "Staff Business Analyst - Payments",
     "function": "BA",
-    "subfunction": "Payments Analytics",
+    "subfunction": "BA",
     "country": "United States",
     "work_model": "Remote",
     "start_preference": "2026-03-10",
@@ -1091,7 +1096,7 @@
     },
     "created_at": "2025-10-21",
     "age_days": 20,
-    "manager": "Michael Thompson",
-    "ta_responsible": "Emily Davis"
+    "manager": "Henrique Hermanny",
+    "ta_responsible": "Viviane Santos"
   }
 ]
