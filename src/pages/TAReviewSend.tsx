@@ -147,6 +147,18 @@ export function TAReviewSend() {
     }
   }, [selectedView, roles, candidates, filters, pipeline, taResponsibleFilter]);
 
+  // Show loading state if roles are being loaded
+  if (!roles || roles.length === 0) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading TA Review...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="mb-8">
