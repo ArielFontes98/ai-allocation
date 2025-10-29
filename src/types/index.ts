@@ -41,6 +41,7 @@ export interface Role {
   title: string;
   function: string;
   subfunction: string;
+  business_area?: string;
   country: Country;
   work_model: WorkModel;
   start_preference: string;

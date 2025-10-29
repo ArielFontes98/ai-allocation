@@ -3,7 +3,7 @@
     "id": "role_001",
     "title": "Senior Data Scientist - Credit",
     "function": "DS",
-    "subfunction": "Credit Area",
+    "subfunction": "DS",
     "country": "Brazil",
     "work_model": "Hybrid",
     "start_preference": "2026-01-15",
@@ -75,13 +75,14 @@
     "created_at": "2025-10-29",
     "age_days": 12,
     "manager": "Luis Moneda",
-    "ta_responsible": "Katherine Larue"
+    "ta_responsible": "Katherine Larue",
+    "business_area": "DS"
   },
   {
     "id": "role_002",
     "title": "Staff Data Scientist - Payments",
     "function": "DS",
-    "subfunction": "Payments Area",
+    "subfunction": "DS",
     "country": "Mexico",
     "work_model": "Remote",
     "start_preference": "2026-02-01",
@@ -154,13 +155,14 @@
     "created_at": "2025-10-20",
     "age_days": 21,
     "ta_responsible": "Isabela Aredes",
-    "manager": "Flavio Akira"
+    "manager": "Flavio Akira",
+    "business_area": "DS"
   },
   {
     "id": "role_003",
     "title": "Senior Data Scientist - Credit Risk",
     "function": "DS",
-    "subfunction": "Risk Analytics",
+    "subfunction": "DS",
     "country": "United States",
     "work_model": "Remote",
     "start_preference": "2026-01-30",
@@ -233,13 +235,14 @@
     "created_at": "2025-10-15",
     "age_days": 26,
     "ta_responsible": "Mariana Favari",
-    "manager": "Diandra Kubo"
+    "manager": "Diandra Kubo",
+    "business_area": "DS"
   },
   {
     "id": "role_004",
     "title": "Senior Data Scientist - Fraud Detection",
     "function": "DS",
-    "subfunction": "Fraud Area",
+    "subfunction": "DS",
     "country": "Brazil",
     "work_model": "Hybrid",
     "start_preference": "2026-02-15",
@@ -312,13 +315,14 @@
     "created_at": "2025-10-25",
     "age_days": 16,
     "ta_responsible": "Thais Tung",
-    "manager": "Luis Moneda"
+    "manager": "Luis Moneda",
+    "business_area": "DS"
   },
   {
     "id": "role_005",
     "title": "Data Scientist - MLOps",
     "function": "DS",
-    "subfunction": "ML Engineering",
+    "subfunction": "MLE",
     "country": "Brazil",
     "work_model": "Remote",
     "start_preference": "2026-01-20",
@@ -392,7 +396,8 @@
     "created_at": "2025-10-18",
     "age_days": 23,
     "ta_responsible": "Juan Vargas",
-    "manager": "Flavio Akira"
+    "manager": "Flavio Akira",
+    "business_area": "DS"
   },
   {
     "id": "role_006",
@@ -470,13 +475,14 @@
     "created_at": "2025-10-22",
     "age_days": 19,
     "manager": "Henrique Hermanny",
-    "ta_responsible": "Viviane Santos"
+    "ta_responsible": "Viviane Santos",
+    "business_area": "BA"
   },
   {
     "id": "role_007",
     "title": "Staff Data Scientist - Product Analytics",
     "function": "DS",
-    "subfunction": "Product Area",
+    "subfunction": "DS",
     "country": "Colombia",
     "work_model": "Remote",
     "start_preference": "2026-02-20",
@@ -549,7 +555,8 @@
     "created_at": "2025-10-10",
     "age_days": 31,
     "ta_responsible": "Gabriela Bruno",
-    "manager": "Luis Moneda"
+    "manager": "Luis Moneda",
+    "business_area": "DS"
   },
   {
     "id": "role_008",
@@ -627,7 +634,8 @@
     "created_at": "2025-10-28",
     "age_days": 13,
     "manager": "Mie Sato",
-    "ta_responsible": "Natalia Saura"
+    "ta_responsible": "Natalia Saura",
+    "business_area": "BA"
   },
   {
     "id": "role_009",
@@ -705,7 +713,8 @@
     "created_at": "2025-10-26",
     "age_days": 15,
     "manager": "Beatriz Silvestre",
-    "ta_responsible": "Katherine Larue"
+    "ta_responsible": "Katherine Larue",
+    "business_area": "BA"
   },
   {
     "id": "role_010",
@@ -784,7 +793,8 @@
     "created_at": "2025-10-24",
     "age_days": 17,
     "manager": "Henrique Hermanny",
-    "ta_responsible": "Isabela Aredes"
+    "ta_responsible": "Isabela Aredes",
+    "business_area": "BA"
   },
   {
     "id": "role_011",
@@ -862,7 +872,8 @@
     "created_at": "2025-10-27",
     "age_days": 14,
     "manager": "Giovana Costa",
-    "ta_responsible": "Mariana Favari"
+    "ta_responsible": "Mariana Favari",
+    "business_area": "BA"
   },
   {
     "id": "role_012",
@@ -940,7 +951,8 @@
     "created_at": "2025-10-25",
     "age_days": 16,
     "manager": "Mie Sato",
-    "ta_responsible": "Thais Tung"
+    "ta_responsible": "Thais Tung",
+    "business_area": "BA"
   },
   {
     "id": "role_013",
@@ -1018,7 +1030,8 @@
     "created_at": "2025-10-23",
     "age_days": 18,
     "manager": "Beatriz Silvestre",
-    "ta_responsible": "Juan Vargas"
+    "ta_responsible": "Juan Vargas",
+    "business_area": "BA"
   },
   {
     "id": "role_014",
@@ -1097,6 +1110,7 @@
     "created_at": "2025-10-21",
     "age_days": 20,
     "manager": "Henrique Hermanny",
-    "ta_responsible": "Viviane Santos"
+    "ta_responsible": "Viviane Santos",
+    "business_area": "BA"
   }
 ]
