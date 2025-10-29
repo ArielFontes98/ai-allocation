@@ -19,12 +19,16 @@ function App() {
 
   // Load seed data on mount
   useEffect(() => {
-    // Only load if store is empty (preserve user edits)
     const state = useStore.getState();
+    
+    // Check if BA roles are missing
+    const hasBARoles = state.roles.some(r => r.function === 'BA');
+    
     if (state.candidates.length === 0) {
       setCandidates(candidatesData as any);
     }
-    if (state.roles.length === 0) {
+    // Reload roles if empty OR if BA roles are missing
+    if (state.roles.length === 0 || !hasBARoles) {
       setRoles(rolesData as any);
     }
     if (state.interviews.length === 0) {
