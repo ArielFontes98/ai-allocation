@@ -219,9 +219,9 @@ export function HybridTable({
                               {onAddMatch && (
                                 <button
                                   onClick={() => onAddMatch(itemId)}
-                                  className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors shadow-md"
+                                  className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors shadow-md"
                                 >
-                                  <Plus className="w-4 h-4" />
+                                  <Plus className="w-5 h-5" />
                                   Add {view === 'by-role' ? 'Candidate' : 'Role'}
                                 </button>
                               )}
@@ -249,7 +249,7 @@ export function HybridTable({
                                         {onEditMatch && (
                                           <button
                                             onClick={() => onEditMatch(match)}
-                                            className="p-2 text-gray-600 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors"
+                                            className="p-2.5 text-primary hover:text-white hover:bg-primary rounded-lg transition-colors border border-primary"
                                             title="Edit match score"
                                           >
                                             <Edit2 className="w-4 h-4" />
@@ -258,7 +258,7 @@ export function HybridTable({
                                         {onRemoveMatch && (
                                           <button
                                             onClick={() => onRemoveMatch(match)}
-                                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                            className="p-2.5 text-red-600 hover:text-white hover:bg-red-600 rounded-lg transition-colors border border-red-600"
                                             title="Remove from top 3"
                                           >
                                             <X className="w-4 h-4" />

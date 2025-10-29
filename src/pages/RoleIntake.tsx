@@ -421,7 +421,7 @@ export function RoleIntake() {
                   languages_required: [...(formData.languages_required || []), { code: 'en', min: 'C1' }],
                 });
               }}
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors flex items-center gap-2 shadow-md"
             >
               <Plus className="w-4 h-4" />
               Add Language

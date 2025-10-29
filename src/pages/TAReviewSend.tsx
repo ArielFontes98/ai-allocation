@@ -168,7 +168,7 @@ export function TAReviewSend() {
           <div className="flex gap-3">
             <button
               onClick={handleExportCSV}
-              className="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition-colors flex items-center gap-2"
+              className="px-4 py-2.5 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-colors flex items-center gap-2 border border-gray-300"
             >
               <Download className="w-4 h-4" />
               Export CSV
@@ -277,15 +277,15 @@ export function TAReviewSend() {
           <div className="flex gap-3">
             <button
               onClick={handleGenerateBatch}
-              className="px-4 py-2 bg-primary text-white rounded-xl font-medium hover:bg-primary-dark transition-colors"
+              className="px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors shadow-md"
             >
               Generate This Week's Picks
             </button>
             <button
               onClick={handleSendBatch}
-              className="px-4 py-2 bg-green-600 text-white rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center gap-2"
+              className="px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-colors flex items-center gap-2 shadow-md"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-5 h-5" />
               Send to Managers
             </button>
           </div>
