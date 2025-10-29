@@ -55,7 +55,7 @@ export function Navigation() {
                   onClick={() => useStore.getState().setCurrentScreen(item.id)}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-all ${
                     isActive
-                      ? 'bg-primary text-white shadow-lg active:bg-white active:text-primary active:border active:border-primary'
+                      ? 'bg-white text-primary border border-primary shadow-sm'
                       : 'text-gray-700 hover:bg-gray-100 font-medium'
                   }`}
                   style={isActive ? { fontWeight: 700 } : {}}

@@ -261,7 +261,7 @@ export function TAReviewSend() {
           <div className="flex gap-3">
             <button
               onClick={handleGenerateBatch}
-              className="px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark active:bg-white active:text-primary active:border active:border-primary transition-colors shadow-md"
+              className="px-6 py-3 bg-white text-primary border border-primary rounded-xl font-semibold hover:bg-primary hover:text-white transition-colors shadow-md"
             >
               Generate This Week's Picks
             </button>
