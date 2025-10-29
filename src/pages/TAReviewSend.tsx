@@ -28,21 +28,44 @@ export function TAReviewSend() {
 
   // Compute matches for all roles and candidates
   useEffect(() => {
-    const matches: MatchScore[] = [];
-    
-    if (selectedView === 'by-role') {
-      roles.forEach((role) => {
-        const topMatches = getTopMatchesForRole(role, candidates, interviews, pipeline, 3);
-        matches.push(...topMatches);
-      });
-    } else {
-      candidates.forEach((candidate) => {
-        const topMatches = getTopMatchesForCandidate(candidate, roles, interviews, pipeline, 3);
-        matches.push(...topMatches);
-      });
+    try {
+      const matches: MatchScore[] = [];
+      
+      // Ensure all data is arrays
+      if (!Array.isArray(roles) || !Array.isArray(candidates) || !Array.isArray(interviews) || !Array.isArray(pipeline)) {
+        console.error('Data not loaded yet', { roles, candidates, interviews, pipeline });
+        return;
+      }
+      
+      if (selectedView === 'by-role') {
+        roles.forEach((role) => {
+          try {
+            const topMatches = getTopMatchesForRole(role, candidates, interviews, pipeline, 3);
+            if (Array.isArray(topMatches)) {
+              matches.push(...topMatches);
+            }
+          } catch (err) {
+            console.error('Error computing matches for role:', role.id, err);
+          }
+        });
+      } else {
+        candidates.forEach((candidate) => {
+          try {
+            const topMatches = getTopMatchesForCandidate(candidate, roles, interviews, pipeline, 3);
+            if (Array.isArray(topMatches)) {
+              matches.push(...topMatches);
+            }
+          } catch (err) {
+            console.error('Error computing matches for candidate:', candidate.id, err);
+          }
+        });
+      }
+      
+      setCurrentMatches(matches);
+    } catch (error) {
+      console.error('Error in TA Review useEffect:', error);
+      setCurrentMatches([]);
     }
-    
-    setCurrentMatches(matches);
   }, [candidates, roles, interviews, pipeline, selectedView]);
 
   const handleGenerateBatch = () => {
