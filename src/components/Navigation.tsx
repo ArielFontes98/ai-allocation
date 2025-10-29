@@ -10,12 +10,12 @@ export function Navigation() {
   
   // Update current screen based on URL
   useEffect(() => {
-    const pathToScreen: Record<string, 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals' | 'ta-allocation'> = {
-      '/': 'confirm-roles',
+    const pathToScreen: Record<string, 'ta-allocation' | 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals'> = {
+      '/': 'ta-allocation',
+      '/confirm-roles': 'confirm-roles',
       '/intake': 'role-intake',
       '/review': 'ta-review',
       '/approvals': 'manager-approvals',
-      '/allocation': 'ta-allocation',
     };
     const screen = pathToScreen[location.pathname];
     if (screen) {
@@ -24,11 +24,11 @@ export function Navigation() {
   }, [location.pathname, setCurrentScreen]);
   
   const navItems = [
-    { id: 'confirm-roles' as const, label: 'Confirm Roles', icon: CheckCircle2, path: '/' },
+    { id: 'ta-allocation' as const, label: 'TA Allocation', icon: UserCog, path: '/' },
+    { id: 'confirm-roles' as const, label: 'Confirm Roles', icon: CheckCircle2, path: '/confirm-roles' },
     { id: 'role-intake' as const, label: 'Role Intake', icon: FileText, path: '/intake' },
     { id: 'ta-review' as const, label: 'TA Review', icon: Users, path: '/review' },
     { id: 'manager-approvals' as const, label: 'Approvals', icon: Briefcase, path: '/approvals' },
-    { id: 'ta-allocation' as const, label: 'TA Allocation', icon: UserCog, path: '/allocation' },
   ];
 
   return (

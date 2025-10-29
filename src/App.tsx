@@ -44,11 +44,11 @@ function App() {
     <BrowserRouter basename="/ai-allocation">
       <Layout>
         <Routes>
-          <Route path="/" element={<ConfirmRoles />} />
+          <Route path="/" element={<TAAllocation />} />
+          <Route path="/confirm-roles" element={<ConfirmRoles />} />
           <Route path="/intake" element={<RoleIntake />} />
           <Route path="/review" element={<TAReviewSend />} />
           <Route path="/approvals" element={<ManagerApprovals />} />
-          <Route path="/allocation" element={<TAAllocation />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>

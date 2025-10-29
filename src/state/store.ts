@@ -31,7 +31,7 @@ interface AppState {
   };
   
   // UI state
-  currentScreen: 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals' | 'ta-allocation';
+  currentScreen: 'ta-allocation' | 'confirm-roles' | 'role-intake' | 'ta-review' | 'manager-approvals';
   selectedView: 'by-role' | 'by-candidate';
   pendingRoleIntake?: Partial<Role>;
   
@@ -67,7 +67,7 @@ export const useStore = create<AppState>()(
       currentBatch: undefined,
       reservations: [],
       filters: {},
-      currentScreen: 'confirm-roles',
+      currentScreen: 'ta-allocation',
       selectedView: 'by-role',
       
       setCandidates: (candidates) => set({ candidates }),

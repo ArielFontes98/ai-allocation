@@ -17,14 +17,35 @@ export function TAAllocation() {
   const updateRole = useStore((state) => state.updateRole);
 
   const [allocations, setAllocations] = useState<Map<string, string>>(new Map());
+  const [filters, setFilters] = useState({
+    function: '',
+    country: '',
+    level: '',
+  });
+
+  // Get unique values for filters
+  const uniqueFunctions = useMemo(() => Array.from(new Set(roles.map(r => r.function))).sort(), [roles]);
+  const uniqueCountries = useMemo(() => Array.from(new Set(roles.map(r => r.country))).sort(), [roles]);
+  const uniqueLevels = useMemo(() => {
+    const levels = new Set<string>();
+    roles.forEach(r => r.target_levels.forEach(l => levels.add(l)));
+    return Array.from(levels).sort();
+  }, [roles]);
 
   // Group roles by function, country, and level
   const allocationGroups = useMemo(() => {
     const groupsMap = new Map<string, { roles: Role[], taResponsible: string }>();
     
     roles.forEach(role => {
+      // Apply filters
+      if (filters.function && role.function !== filters.function) return;
+      if (filters.country && role.country !== filters.country) return;
+      
       // For each level in target_levels, create a group
       role.target_levels.forEach(level => {
+        // Apply level filter
+        if (filters.level && level !== filters.level) return;
+        
         const key = `${role.function}-${role.country}-${level}`;
         
         if (!groupsMap.has(key)) {
@@ -59,7 +80,7 @@ export function TAAllocation() {
       if (a.country !== b.country) return a.country.localeCompare(b.country);
       return a.level.localeCompare(b.level);
     });
-  }, [roles, allocations]);
+  }, [roles, allocations, filters]);
 
   const handleAssignTA = (functionName: string, country: string, level: string, taName: string) => {
     if (!taName.trim()) {
@@ -94,6 +115,51 @@ export function TAAllocation() {
         <p className="text-gray-600">
           Assign TA Responsible by function, country, and level combination.
         </p>
+      </div>
+
+      {/* Filters */}
+      <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm mb-6">
+        <div className="grid grid-cols-3 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Function</label>
+            <select
+              value={filters.function}
+              onChange={(e) => setFilters({ ...filters, function: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              <option value="">All Functions</option>
+              {uniqueFunctions.map(f => (
+                <option key={f} value={f}>{f}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+            <select
+              value={filters.country}
+              onChange={(e) => setFilters({ ...filters, country: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              <option value="">All Countries</option>
+              {uniqueCountries.map(c => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Level</label>
+            <select
+              value={filters.level}
+              onChange={(e) => setFilters({ ...filters, level: e.target.value })}
+              className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              <option value="">All Levels</option>
+              {uniqueLevels.map(l => (
+                <option key={l} value={l}>{l}</option>
+              ))}
+            </select>
+          </div>
+        </div>
       </div>
 
       {/* Allocation Table */}
