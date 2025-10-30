@@ -4,6 +4,15 @@ import { X, Search } from 'lucide-react';
 import type { Role } from '../types';
 import { RoleCard } from './RoleCard';
 
+// Helper function to sort roles with Hot Squad first
+const sortRolesWithHotSquadFirst = (roles: Role[]): Role[] => {
+  return [...roles].sort((a, b) => {
+    if (a.hot_squad && !b.hot_squad) return -1;
+    if (!a.hot_squad && b.hot_squad) return 1;
+    return 0;
+  });
+};
+
 interface RoleSelectorModalProps {
   isOpen: boolean;
   candidateId: string;
@@ -33,6 +42,9 @@ export function RoleSelectorModal({
       r.country.toLowerCase().includes(term)
     );
   });
+  
+  // Sort to show Hot Squad roles first
+  const sortedFiltered = sortRolesWithHotSquadFirst(filtered);
 
   return (
     <AnimatePresence>
@@ -86,10 +98,14 @@ export function RoleSelectorModal({
                   </div>
                 ) : (
                   <div className="grid gap-4">
-                    {filtered.map((role) => (
+                    {sortedFiltered.map((role) => (
                       <div
                         key={role.id}
-                        className="border-2 border-gray-200 rounded-xl p-4 hover:border-primary transition-colors cursor-pointer"
+                        className={`border-2 rounded-xl p-4 transition-colors cursor-pointer ${
+                          role.hot_squad 
+                            ? 'border-orange-300 hover:border-orange-500 bg-orange-50/30' 
+                            : 'border-gray-200 hover:border-primary'
+                        }`}
                         onClick={() => {
                           onSelect(role.id);
                           onClose();

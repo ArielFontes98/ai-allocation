@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import type { Role } from '../types';
 import { Badge } from './Badge';
-import { Building2, MapPin, Calendar, Users, UserCheck } from 'lucide-react';
+import { Building2, MapPin, Calendar, Users, UserCheck, Flame } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
 interface RoleCardProps {
@@ -23,7 +23,12 @@ export function RoleCard({ role, onClick, className = '', showAge = false }: Rol
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900 mb-1">{role.title}</h3>
+          <div className="flex items-center gap-2 mb-1">
+            {role.hot_squad && (
+              <Flame className="w-5 h-5 text-orange-500 flex-shrink-0" />
+            )}
+            <h3 className="text-lg font-semibold text-gray-900">{role.title}</h3>
+          </div>
           <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
             <Building2 className="w-4 h-4" />
             <span>{role.function} • {role.subfunction}</span>

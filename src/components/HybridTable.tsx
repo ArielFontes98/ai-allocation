@@ -134,13 +134,19 @@ export function HybridTable({
                         {view === 'by-role' ? (
                           <>
                             {onToggleHotSquad && (
-                              <input
-                                type="checkbox"
-                                checked={(item as Role).hot_squad || false}
-                                onChange={(e) => onToggleHotSquad(itemId, e.target.checked)}
-                                className="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500 cursor-pointer"
-                                onClick={(e) => e.stopPropagation()}
-                              />
+                              <div className="group relative">
+                                <input
+                                  type="checkbox"
+                                  checked={(item as Role).hot_squad || false}
+                                  onChange={(e) => onToggleHotSquad(itemId, e.target.checked)}
+                                  className="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500 cursor-pointer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  title="Mark as Hot Squad (priority role)"
+                                />
+                                <span className="absolute left-0 top-6 hidden group-hover:block whitespace-nowrap bg-gray-900 text-white text-xs rounded py-1 px-2 z-10 pointer-events-none">
+                                  Mark as Hot Squad
+                                </span>
+                              </div>
                             )}
                             {(item as Role).hot_squad && (
                               <Flame className="w-5 h-5 text-orange-500" />
