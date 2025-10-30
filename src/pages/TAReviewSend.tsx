@@ -6,7 +6,7 @@ import { RoleSelectorModal } from '../components/RoleSelectorModal';
 import { FiltersBar } from '../components/FiltersBar';
 import { addToast } from '../components/Layout';
 import { getTopMatchesForRole, getTopMatchesForCandidate, computeMatchScore } from '../lib/matching';
-import { Send, Filter, Download } from 'lucide-react';
+import { Send, Filter, Download, Flame } from 'lucide-react';
 import type { MatchScore, Role, Candidate } from '../types';
 
 export function TAReviewSend() {
@@ -21,6 +21,7 @@ export function TAReviewSend() {
   const sendBatch = useStore((state) => state.sendBatch);
   const filters = useStore((state) => state.filters);
   const setFilters = useStore((state) => state.setFilters);
+  const updateRole = useStore((state) => state.updateRole);
 
   const [currentMatches, setCurrentMatches] = useState<MatchScore[]>([]);
   const [selectingForRole, setSelectingForRole] = useState<Role | null>(null);
@@ -61,7 +62,26 @@ export function TAReviewSend() {
         });
       }
       
-      setCurrentMatches(matches);
+      // Sort matches for by-candidate view to prioritize Hot Squad roles
+      if (selectedView === 'by-candidate') {
+        // Group matches by candidate and sort each group
+        const sortedMatches: MatchScore[] = [];
+        candidates.forEach((candidate) => {
+          const candidateMatches = matches.filter((m) => m.candidate_id === candidate.id);
+          // Sort to put Hot Squad roles first
+          const sorted = candidateMatches.sort((a, b) => {
+            const roleA = roles.find((r) => r.id === a.role_id);
+            const roleB = roles.find((r) => r.id === b.role_id);
+            if (roleA?.hot_squad && !roleB?.hot_squad) return -1;
+            if (!roleA?.hot_squad && roleB?.hot_squad) return 1;
+            return b.total_score - a.total_score;
+          });
+          sortedMatches.push(...sorted);
+        });
+        setCurrentMatches(sortedMatches);
+      } else {
+        setCurrentMatches(matches);
+      }
     } catch (error) {
       console.error('Error in TA Review useEffect:', error);
       setCurrentMatches([]);
@@ -145,6 +165,9 @@ export function TAReviewSend() {
       }
       if (filters.oldRole) {
         filtered = filtered.filter((item) => item.age_days >= filters.oldRole!);
+      }
+      if (filters.hotSquad !== undefined) {
+        filtered = filtered.filter((item) => item.hot_squad === filters.hotSquad);
       }
 
       return filtered;
@@ -290,15 +313,29 @@ export function TAReviewSend() {
             </div>
           </div>
           {selectedView === 'by-role' && (
-            <div className="mt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">TA Responsible</label>
-              <input
-                type="text"
-                value={taResponsibleFilter}
-                onChange={(e) => setTaResponsibleFilter(e.target.value)}
-                placeholder="Filter by TA responsible..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">TA Responsible</label>
+                <input
+                  type="text"
+                  value={taResponsibleFilter}
+                  onChange={(e) => setTaResponsibleFilter(e.target.value)}
+                  placeholder="Filter by TA responsible..."
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
+                />
+              </div>
+              <div className="flex items-center">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={filters.hotSquad === true}
+                    onChange={(e) => setFilters({ hotSquad: e.target.checked ? true : undefined })}
+                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                  />
+                  <Flame className="w-5 h-5 text-orange-500" />
+                  <span className="text-sm font-medium text-gray-700">Hot Squad Only</span>
+                </label>
+              </div>
             </div>
           )}
           <FiltersBar
@@ -350,6 +387,10 @@ export function TAReviewSend() {
             roles={roles}
             pipeline={pipeline}
             view={selectedView}
+            onToggleHotSquad={selectedView === 'by-role' ? (roleId: string, hotSquad: boolean) => {
+              updateRole(roleId, { hot_squad: hotSquad });
+              addToast(hotSquad ? 'Role marked as Hot Squad' : 'Hot Squad removed from role', 'success');
+            } : undefined}
             onRemoveMatch={(match) => {
               setCurrentMatches((prev) =>
                 prev.filter((m) => !(m.candidate_id === match.candidate_id && m.role_id === match.role_id))

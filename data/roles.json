@@ -76,7 +76,8 @@
     "age_days": 12,
     "manager": "Luis Moneda",
     "ta_responsible": "Katherine Larue",
-    "business_area": "Credit Modeling"
+    "business_area": "Credit Modeling",
+    "hot_squad": true
   },
   {
     "id": "role_002",
@@ -236,7 +237,8 @@
     "age_days": 26,
     "ta_responsible": "Mariana Favari",
     "manager": "Diandra Kubo",
-    "business_area": "Risk Analytics"
+    "business_area": "Risk Analytics",
+    "hot_squad": true
   },
   {
     "id": "role_004",
@@ -316,7 +318,8 @@
     "age_days": 16,
     "ta_responsible": "Thais Tung",
     "manager": "Luis Moneda",
-    "business_area": "Fraud Analytics"
+    "business_area": "Fraud Analytics",
+    "hot_squad": true
   },
   {
     "id": "role_005",
@@ -397,7 +400,8 @@
     "age_days": 23,
     "ta_responsible": "Juan Vargas",
     "manager": "Flavio Akira",
-    "business_area": "ML Engineering"
+    "business_area": "ML Engineering",
+    "hot_squad": true
   },
   {
     "id": "role_006",

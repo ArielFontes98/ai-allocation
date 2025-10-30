@@ -2,7 +2,7 @@ import { X } from 'lucide-react';
 import { Badge } from './Badge';
 
 interface FiltersBarProps {
-  filters: Record<string, string | number | undefined>;
+  filters: Record<string, string | number | boolean | undefined>;
   onClearFilter: (key: string) => void;
   onClearAll: () => void;
 }

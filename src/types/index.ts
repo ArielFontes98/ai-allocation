@@ -75,6 +75,7 @@ export interface Role {
   age_days: number;
   manager?: string;
   ta_responsible?: string;
+  hot_squad?: boolean;
 }
 
 export interface Interview {

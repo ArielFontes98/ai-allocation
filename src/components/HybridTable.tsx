@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { X, Plus, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, Plus, ChevronDown, ChevronUp, Flame } from 'lucide-react';
 import type { MatchScore, Candidate, Role, PipelineEntry } from '../types';
 import { Badge } from './Badge';
 import { MatchExplain } from './MatchExplain';
@@ -14,6 +14,7 @@ interface HybridTableProps {
   roles: Role[];
   pipeline: PipelineEntry[];
   view: 'by-role' | 'by-candidate';
+  onToggleHotSquad?: (roleId: string, hotSquad: boolean) => void;
   onRemoveMatch?: (match: MatchScore) => void;
   onAddMatch?: (itemId: string) => void;
 }
@@ -25,6 +26,7 @@ export function HybridTable({
   roles,
   pipeline,
   view,
+  onToggleHotSquad,
   onRemoveMatch,
   onAddMatch,
 }: HybridTableProps) {
@@ -128,8 +130,24 @@ export function HybridTable({
                     className="hover:bg-gray-50 transition-colors"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="font-semibold text-gray-900">
-                        {view === 'by-role' ? (item as Role).title : (item as Candidate).name}
+                      <div className="font-semibold text-gray-900 flex items-center gap-2">
+                        {view === 'by-role' ? (
+                          <>
+                            {onToggleHotSquad && (
+                              <input
+                                type="checkbox"
+                                checked={(item as Role).hot_squad || false}
+                                onChange={(e) => onToggleHotSquad(itemId, e.target.checked)}
+                                className="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500 cursor-pointer"
+                                onClick={(e) => e.stopPropagation()}
+                              />
+                            )}
+                            {(item as Role).hot_squad && (
+                              <Flame className="w-5 h-5 text-orange-500" />
+                            )}
+                            {(item as Role).title}
+                          </>
+                        ) : (item as Candidate).name}
                       </div>
                       <div className="text-sm text-gray-500">
                         {view === 'by-role'
@@ -165,8 +183,13 @@ export function HybridTable({
                               className={`flex items-center gap-2 px-3 py-2 rounded-lg border-2 font-semibold ${getScoreColor(match.total_score)}`}
                             >
                               <span className="text-xs font-bold">#{index + 1}</span>
-                              <span className="text-sm truncate max-w-[120px]">
-                                {view === 'by-role' ? candidate?.name : role?.title}
+                              <span className="flex items-center gap-1 text-sm truncate max-w-[120px]">
+                                {view === 'by-role' ? candidate?.name : (
+                                  <>
+                                    {role?.hot_squad && <Flame className="w-4 h-4 text-orange-500" />}
+                                    {role?.title}
+                                  </>
+                                )}
                               </span>
                               <span className="text-base font-bold">{match.total_score}%</span>
                             </div>

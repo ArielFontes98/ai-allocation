@@ -28,6 +28,7 @@ interface AppState {
     tools?: string;
     staleInPipe?: number;
     oldRole?: number;
+    hotSquad?: boolean;
   };
   
   // UI state
